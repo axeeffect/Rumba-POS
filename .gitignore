@@ -1,2 +1,5 @@
-*.settings
 *DS_Store
+*.settings
+*.classpath
+/bin
+/build
