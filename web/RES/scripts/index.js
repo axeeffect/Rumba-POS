@@ -6,12 +6,15 @@ jQuery(document).ready(function(){
 	///// LOGIN FORM SUBMIT /////
 	jQuery('#login').submit(function(){
 	
-		if(jQuery('#username').val() == '' && jQuery('#password').val() == '' || jQuery('#username').val() == '' && jQuery('#password').val() != '') {
+		if(jQuery('#username').val() == '' && jQuery('#password').val() == ''
+		|| jQuery('#username').val() == '' && jQuery('#password').val() != ''
+		|| jQuery('#username').val() != 'admin' && jQuery('#password').val() == 'password') {
 			jQuery('.nousername').fadeIn();
 			jQuery('.nopassword').hide();
 			return false;	
 		}
-		if(jQuery('#username').val() != '' && jQuery('#password').val() == '') {
+		if(jQuery('#username').val() != '' && jQuery('#password').val() == ''
+		|| jQuery('#username').val() == 'admin' && jQuery('#password').val() != 'password') {
 			jQuery('.nopassword').fadeIn().find('.userlogged h4, .userlogged a span').text(jQuery('#username').val());
 			jQuery('.nousername,.username').hide();
 			return false;;
