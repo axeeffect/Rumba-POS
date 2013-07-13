@@ -67,15 +67,13 @@
 	cursor: pointer;
 }
 
-/*
 .base #dtag span.excel {
-	background-image: url(../img/ico_file_excel.png);
+	background: url(../images/ico_file_excel.png) no-repeat;
 }
 
 .base #dtag span.pdf {
-	background-image: url(../img/ico_file_pdf.png);
+	background: url(../images/ico_file_pdf.png) no-repeat;
 }
-*/
 
 .base #dtag span.pagebanner {
 	background-color: #eee;
