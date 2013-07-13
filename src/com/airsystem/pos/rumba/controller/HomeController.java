@@ -15,4 +15,14 @@ public class HomeController {
 	public ModelAndView mainPage() {
 		return new ModelAndView("home");
 	}
+
+	@RequestMapping("/menu")
+	public ModelAndView menuPage() {
+		return new ModelAndView("menu");
+	}
+
+	@RequestMapping("/setting")
+	public ModelAndView settingPage() {
+		return new ModelAndView("setting");
+	}
 }
