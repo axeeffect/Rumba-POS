@@ -35,10 +35,14 @@
 
 			<!--nopassword-->
 			<div class="nopassword">
+				<div class="loginmsg">Input password lama dan baru Anda.</div>
+			</div>
+
+			<div class="nousername">
 				<div class="loginmsg">Password lama dan baru tidak boleh sama.</div>
 			</div>
 
-			<form id="changepass" action="<c:url value="home"/>" method="post">
+			<form id="changepass" action="<c:url value="/"/>" method="post">
 				<div class="password">
 					<div class="passwordinner">
 						<input type="password" name="password" id="oldpassword" />
