@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rumba Collection &middot; POS</title>
 
@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="<c:url value="/RES/styles/default.css"/>" type="text/css" />
 
 <!--[if IE 9]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie9.css"/>"/>
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie9.css"/>" type="text/css" />
 <![endif]-->
 
 <!--[if IE 8]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie8.css"/>"/>
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
 <body class="loginpage">
@@ -35,12 +35,12 @@
 
 			<!--nousername-->
 			<div class="nousername">
-				<div class="loginmsg">The username you entered is incorrect.</div>
+				<div class="loginmsg">Username yang Anda masukkan salah.</div>
 			</div>
 
 			<!--nopassword-->
 			<div class="nopassword">
-				<div class="loginmsg">The password you entered is incorrect.</div>
+				<div class="loginmsg">Password yang Anda masukkan salah.</div>
 				<div class="loginf">
 					<div class="thumb">
 						<img alt="" src="<c:url value="/RES/images/wrong-password.png"/>" />
@@ -49,8 +49,7 @@
 				<!--loginf-->
 					<div class="userlogged">
 						<h4></h4>
-						<a href="<c:url value="setting"/>">Not <span></span> ?
-						</a>
+						<a href="<c:url value="setting"/>">Bukan <span></span> ?</a>
 					</div>
 				</div>
 			</div>
@@ -66,21 +65,21 @@
 						<input type="password" name="password" id="password" />
 					</div>
 				</div>
-				<button>Sign In</button>
+				<button>Login</button>
 			</form>
 		</div>
 	</div>
 
 	<!-- JS -->
-	<script type="text/javascript" src="<c:url value="/RES/scripts/jquery.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/RES/scripts/jquery-ui.custom.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/RES/scripts/jquery.cookie.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/RES/scripts/jquery.uniform.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/RES/scripts/general.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/RES/scripts/index.js"/>"></script>
+	<script src="<c:url value="/RES/scripts/jquery.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES/scripts/general.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES/scripts/index.js"/>" type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>"></script>
-<![endif]-->
+		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+	<![endif]-->
 </body>
 </html>
