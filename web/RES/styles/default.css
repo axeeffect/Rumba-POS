@@ -56,7 +56,7 @@ h5 { font-size: 14px; }
 
 span.h3 { font-size: 24px; display: block; }
 
-body.withvernav { background: #fff url(../images/line.ccc.png) repeat-y 230px 0; } /* with left menu*/
+body.withvernav { background: #fff url(../images/default/noise.white.png); position: relative; }
 body.withmenucoll { background-position: 55px 0; } /* with menu style 1 in collapsed mode */
 body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in collapsed mode */
 
@@ -298,11 +298,9 @@ body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in coll
 .headermenu li a span { opacity: 0.5; }
 .headermenu li a span.icon { height: 30px; display: block; margin-bottom: 10px; }
 
-.headermenu li a span.icon-flatscreen { background: url(../images/icons/flatscreen.white.png) no-repeat center center; }
-.headermenu li a span.icon-pencil { background: url(../images/icons/pencil.white.png) no-repeat center center; }
-.headermenu li a span.icon-speech { background: url(../images/icons/speech.white.png) no-repeat center center; }
-.headermenu li a span.icon-message { background: url(../images/icons/message.white.png) no-repeat center center; }
-.headermenu li a span.icon-chart { background: url(../images/icons/chart.white.png) no-repeat center center; }
+.headermenu li a span.icon-shirt { background: url(../images/icons/shirt.png) no-repeat center center; }
+.headermenu li a span.icon-book { background: url(../images/icons/book.png) no-repeat center center; }
+.headermenu li a span.icon-author { background: url(../images/icons/author.png) no-repeat center center; }
 .headermenu li a:hover { 
 	background: url(../images/default/bghover.png) no-repeat center bottom; -moz-box-shadow: inset 0 1px 0 #4f627e; 
 	-webkit-box-shadow: inset 0 1px 0 #4f627e; box-shadow: inset 0 1px 0 #4f627e;
