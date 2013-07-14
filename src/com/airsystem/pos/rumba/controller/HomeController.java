@@ -16,11 +16,6 @@ public class HomeController {
 		return new ModelAndView("home");
 	}
 
-	@RequestMapping("/home")
-	public ModelAndView loginPage() {
-		return new ModelAndView("home");
-	}
-
 	@RequestMapping("/menu")
 	public ModelAndView menuPage() {
 		return new ModelAndView("menu");
