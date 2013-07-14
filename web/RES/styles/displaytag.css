@@ -1,4 +1,4 @@
-.base #dtag table {
+#dtag table {
 	border: 1px solid #666;
 	width: 100%;
 	margin: 20px 0 20px 0 !important;
@@ -6,53 +6,53 @@
 	overflow: auto;
 }
 
-.base #dtag th,td {
+#dtag th,td {
 	padding: 2px 4px 2px 4px !important;
 	text-align: left;
 	vertical-align: top;
 }
 
-.base #dtag thead tr {
+#dtag thead tr {
 	background-color: #3399FF;
 }
 
-.base #dtag th.sorted {
+#dtag th.sorted {
 	background-color: #3399FF;
 }
 
-.base #dtag th a {
+#dtag th a {
 	color: #111;
 	text-decoration: none;
 }
 
-.base #dtag th a:visited {
+#dtag th a:visited {
 	color: black;
 }
 
-.base #dtag th a:hover {
+#dtag th a:hover {
 	text-decoration: none;
 	color: #111;
 }
 
-.base #dtag th.sorted a,th.sortable a {
+#dtag th.sorted a,th.sortable a {
 	background-position: right;
 	display: block;
 	width: 100%;
 }
 
-.base #dtag tr.odd {
+#dtag tr.odd {
 	background-color: #fff
 }
 
-.base #dtag tr.tableRowEven,tr.even {
+#dtag tr.tableRowEven,tr.even {
 	background-color: #99C2FF;
 }
 
-.base #dtag img {
+#dtag img {
 	border: 0px;
 }
 
-.base #dtag div.exportlinks {
+#dtag div.exportlinks {
 	background-color: #eee;
 	border: 1px dotted #999;
 	padding: 2px 4px 2px 4px;
@@ -60,22 +60,22 @@
 	width: 98.5%;
 }
 
-.base #dtag span.export {
+#dtag span.export {
 	padding: 0 4px 1px 20px;
 	display: inline;
 	display: inline-block;
 	cursor: pointer;
 }
 
-.base #dtag span.excel {
+#dtag span.excel {
 	background: url(../images/ico_file_excel.png) no-repeat;
 }
 
-.base #dtag span.pdf {
+#dtag span.pdf {
 	background: url(../images/ico_file_pdf.png) no-repeat;
 }
 
-.base #dtag span.pagebanner {
+#dtag span.pagebanner {
 	background-color: #eee;
 	border: 1px dotted #999;
 	padding: 2px 4px 2px 4px;
@@ -86,7 +86,7 @@
 	font-size: 11;
 }
 
-.base #dtag span.pagelinks {
+#dtag span.pagelinks {
 	background-color: #eee;
 	border: 1px dotted #999;
 	padding: 2px 4px 2px 4px;
@@ -97,40 +97,40 @@
 	font-size: 11;
 }
 
-.base #dtag .group-1 {
+#dtag .group-1 {
 	font-weight: bold;
 	padding-bottom: 10px;
 	border-top: 1px solid black;
 }
 
-.base #dtag .group-2 {
+#dtag .group-2 {
 	font-style: italic;
 	border-top: 1px solid black;
 }
 
-.base #dtag .subtotal-sum,.grandtotal-sum {
+#dtag .subtotal-sum,.grandtotal-sum {
 	font-weight: bold;
 	text-align: right;
 }
 
-.base #dtag .subtotal-header {
+#dtag .subtotal-header {
 	padding-bottom: 0px;
 	border-top: 1px solid white;
 }
 
-.base #dtag .subtotal-label,.grandtotal-label {
+#dtag .subtotal-label,.grandtotal-label {
 	border-top: 1px solid white;
 	font-weight: bold;
 }
 
-.base #dtag .grouped-table tr.even {
+#dtag .grouped-table tr.even {
 	background-color: #fff;
 }
 
-.base #dtag .grouped-table tr.odd {
+#dtag .grouped-table tr.odd {
 	background-color: #fff;
 }
 
-.base #dtag .grandtotal-row {
+#dtag .grandtotal-row {
 	border-top: 2px solid black;
 }

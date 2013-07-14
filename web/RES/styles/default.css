@@ -959,9 +959,9 @@ form label.error { float: none; color: #f00; font-size: 11px; display: block; te
 
 .stdform p, .stdform div.par { margin: 20px 0; }
 .stdform div.par { overflow: hidden; }
-.stdform span.field, .stdform div.field { margin-left: 220px; display: block; position: relative; }
+.stdform span.field, .stdform div.field { margin-left: 140px; display: block; position: relative; }
 .stdform .formwrapper { display: block; padding-top: 5px; margin-left: 220px; line-height: 25px; }
-.stdform label { float: left; width: 200px; text-align: right; padding: 5px 20px 0 0; }
+.stdform label { float: left; width: 120px; text-align: right; padding: 5px 20px 0 0; }
 
 .stdform button.cancel { background: #eee; color: #666; border: 1px solid #ddd; }
 .stdform button.cancel:hover { background: #ddd; border: 1px solid #ccc; }
@@ -970,7 +970,7 @@ form label.error { float: none; color: #f00; font-size: 11px; display: block; te
 	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 .stdform small.desc { font-size: 11px; color: #999; font-style: italic; display: block; margin: 5px 0 0 220px; }
-.stdform .stdformbutton { margin-left: 220px; }
+.stdform .stdformbutton { margin-left: 140px; }
 
 /*** ANOTHER FORM STYLE ***/
 .stdform2 p, .stdform2 div.par { border: 1px solid #ddd; background: #fcfcfc; margin: 0; border-top: 0; }
