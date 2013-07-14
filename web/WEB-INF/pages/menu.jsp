@@ -56,7 +56,7 @@
 						<h4>Rumba Sales</h4>
 						<ul>
 							<li><a href="<c:url value="setting"/>">Ganti Password</a></li>
-							<li><a href="<c:url value="home"/>">Logout</a></li>
+							<li><a href="<c:url value="/"/>">Logout</a></li>
 						</ul>
 					</div>
 				</div>
@@ -66,8 +66,8 @@
 		<!--header-->
 		<div class="header">
 			<ul class="headermenu">
-				<li class="current">
-					<a href="#master-item">
+				<li>
+					<a href="<c:url value="item"/>">
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li>
@@ -80,14 +80,6 @@
 				</li>
 			</ul>
 		</div>
-
-		<!--pageheader-->
-		<div class="pageheader">
-			<h1 class="pagetitle">Master Item</h1>
-		</div>
-
-		<!--contentwrapper-->
-		<div id="contentwrapper" class="contentwrapper"></div>
 	</div>
 
 	<!-- JS -->
