@@ -25,8 +25,8 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "kode")
-	private long kode;
+	@Column(name = "id")
+	private long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "kode_item")
@@ -46,25 +46,25 @@ public class Order implements Serializable {
 		/* Default constructor */
 	}
 
-	public Order(long kode, Item item) {
-		this.kode = kode;
+	public Order(long id, Item item) {
+		this.id = id;
 		this.item = item;
 	}
 
-	public Order(long kode, Item item, Date tanggal, int jumlah, long total) {
-		this.kode 	 = kode;
+	public Order(long id, Item item, Date tanggal, int jumlah, long total) {
+		this.id = id;
 		this.item  	 = item;
 		this.tanggal = tanggal;
 		this.jumlah  = jumlah;
 		this.total 	 = total;
 	}
 
-	public long getKode() {
-		return kode;
+	public long getId() {
+		return id;
 	}
 
-	public void setKode(long kode) {
-		this.kode = kode;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public Item getItem() {

@@ -91,29 +91,35 @@
 
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
-			<form id="form1" class="stdform" method="post" action="">
+			<form id="form1" class="stdform" method="post" action="<c:url value="item/add-item"/>">
 				<p>
-					<label>Nama Barang</label>
+					<label>Kode Item</label>
 					<span class="field">
-						<input type="text" name="itemname" id="itemname" class="longinput" />
+						<input type="text" name="kode" id="itemcode" class="smallinput" value="${item.kode}" />
 					</span>
 				</p>
 				<p>
-					<label>Jenis Barang</label>
+					<label>Nama Item</label>
 					<span class="field">
-						<input type="text" name="itemkind" id="itemkind" class="longinput" />
+						<input type="text" name="nama" id="itemname" class="longinput" value="${item.nama}" />
+					</span>
+				</p>
+				<p>
+					<label>Jenis Item</label>
+					<span class="field">
+						<input type="text" name="jenis" id="itemkind" class="mediuminput" value="${item.jenis}" />
 					</span>
 				</p>
 				<p>
 					<label>Jumlah</label>
 					<span class="field">
-						<input type="text" name="itemstock" id="itemstock" class="longinput" />
+						<input type="text" name="stok" id="itemstock" class="smallinput" value="${item.stok}" />
 					</span>
 				</p>
 				<p>
 					<label>Harga Satuan</label>
 					<span class="field">
-						<input type="text" name="itemprice" id="itemprice" class="longinput" />
+						<input type="text" name="harga" id="itemprice" class="mediuminput" value="${item.harga}" />
 					</span>
 				</p>
 				<br />
@@ -127,10 +133,12 @@
 				<table id="dtag" style="margin-left: 50px" width="85%">
 					<tr>
 					<td colspan="3">
-						<display:table name="user" id="data" requestURI="" pagesize="10">
-							<display:column property="username" title="Username" sortable="true" />
-							<display:column property="password" title="Password" sortable="true" />
-							<display:column property="role" title="Role" sortable="true" />
+						<display:table name="item" id="data" requestURI="" pagesize="10">
+							<display:column property="kode" title="Kode Item" sortable="true" />
+							<display:column property="nama" title="Nama Item" sortable="true" />
+							<display:column property="jenis" title="Jenis Item" sortable="true" />
+							<display:column property="stok" title="Stok" sortable="true" />
+							<display:column property="harga" title="Harga Satuan" sortable="true" />
 						</display:table>
 					</td>
 					</tr>

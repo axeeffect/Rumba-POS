@@ -54,14 +54,16 @@ jQuery(document).ready(function() {
 					// FORM VALIDATION //
 					jQuery("#form1").validate({
 						rules : {
+							itemcode  : "required",
 							itemname  : "required",
 							itemkind  : "required",
 							itemstock : "required",
 							itemprice : "required"
 						},
 						messages : {
-							itemname  : "Nama barang kosong",
-							itemkind  : "Jenis barang kosong",
+							itemcode  : "Kode item kosong",
+							itemname  : "Nama item kosong",
+							itemkind  : "Jenis item kosong",
 							itemstock : "Jumlah/Stok kosong",
 							itemprice : "Harga satuan kosong"
 						}

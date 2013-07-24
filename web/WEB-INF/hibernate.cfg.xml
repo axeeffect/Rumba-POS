@@ -16,5 +16,7 @@
 		<property name="show_sql">true</property>
 
 		<mapping class="com.airsystem.pos.rumba.bean.User" />
+		<mapping class="com.airsystem.pos.rumba.bean.Item" />
+		<mapping class="com.airsystem.pos.rumba.bean.Order" />
 	</session-factory>
 </hibernate-configuration>
