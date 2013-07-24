@@ -9,10 +9,15 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-public class HomeController {
+public class UserController {
 
-	@RequestMapping("/")
-	public ModelAndView mainPage() {
-		return new ModelAndView("home");
+	@RequestMapping("/menu")
+	public ModelAndView menuPage() {
+		return new ModelAndView("menu");
+	}
+
+	@RequestMapping("/setting")
+	public ModelAndView settingPage() {
+		return new ModelAndView("setting");
 	}
 }
