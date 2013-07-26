@@ -91,42 +91,40 @@
 
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
-			<form id="form1" class="stdform" method="post" action="<c:url value="item/add-item"/>">
+			<form id="form1" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="item"/>">
 				<p>
 					<label>Kode Item</label>
 					<span class="field">
-						<input type="text" name="kode" id="itemcode" class="smallinput" value="${item.kode}" />
+						<input type="text" name="kode" id="itemcode" class="smallinput" />
 					</span>
 				</p>
 				<p>
 					<label>Nama Item</label>
 					<span class="field">
-						<input type="text" name="nama" id="itemname" class="longinput" value="${item.nama}" />
+						<input type="text" name="nama" id="itemname" class="longinput" />
 					</span>
 				</p>
 				<p>
 					<label>Jenis Item</label>
 					<span class="field">
-						<input type="text" name="jenis" id="itemkind" class="mediuminput" value="${item.jenis}" />
+						<input type="text" name="jenis" id="itemkind" class="mediuminput" />
 					</span>
 				</p>
 				<p>
 					<label>Jumlah</label>
 					<span class="field">
-						<input type="text" name="stok" id="itemstock" class="smallinput" value="${item.stok}" />
+						<input type="number" name="stok" id="itemstock" class="smallinput" />
 					</span>
 				</p>
 				<p>
 					<label>Harga Satuan</label>
 					<span class="field">
-						<input type="text" name="harga" id="itemprice" class="mediuminput" value="${item.harga}" />
+						<input type="text" name="harga" id="itemprice" class="mediuminput" />
 					</span>
 				</p>
 				<br />
 				<p class="stdformbutton">
 					<button class="submit radius2">Simpan</button>
-					<button class="submit radius2">Ubah</button>
-					<button class="submit radius2">Hapus</button>
 				</p>
 				<br clear="all" />
 
@@ -139,6 +137,12 @@
 							<display:column property="jenis" title="Jenis Item" sortable="true" />
 							<display:column property="stok" title="Stok" sortable="true" />
 							<display:column property="harga" title="Harga Satuan" sortable="true" />
+							<display:column title="">
+								<a href="/Rumba/item" paramId="id" paramName="data" paramProperty="kode">Ubah</a>
+							</display:column>
+							<display:column title="">
+								<a href="/Rumba/item" paramId="id" paramName="data" paramProperty="kode">Hapus</a>
+							</display:column>
 						</display:table>
 					</td>
 					</tr>
@@ -167,5 +171,28 @@
 	<!--[if lt IE 9]>
 		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
+
+	<script language="javascript" type="text/javascript">
+		document.onkeydown = checkKeycode
+		function checkKeycode(e) {
+			var keycode;
+			if (window.event) {
+				keycode = window.event.keyCode;
+			} else if (e) {
+				keycode = e.which;
+			}
+
+			if (keycode == 116 || (e.ctrlKey && keycode == 82)) {
+				if (e.preventDefault) {
+					e.preventDefault();
+					e.stopPropagation();
+				} else {
+					window.event.returnValue = false;
+					window.event.keyCode = 0;
+					window.status = "Refresh is disabled";
+				}
+			}
+		}
+	</script>
 </body>
 </html>

@@ -11,7 +11,5 @@ public interface ItemService {
 
 	public List<Item> findAllItem();
 	
-	public Item findItemById(String kode);
-
 	public Item saveItem(Item item);
 }

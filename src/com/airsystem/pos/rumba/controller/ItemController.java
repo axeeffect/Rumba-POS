@@ -1,6 +1,5 @@
 package com.airsystem.pos.rumba.controller;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,28 +21,25 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 
-	//FIXME: How to get ALL data of Item ?
 	@RequestMapping(value = "/item", method = RequestMethod.GET)
-	public String open(@ModelAttribute Item item, ModelMap modelMap) {
-		if (StringUtils.isNotBlank(item.getKode())) {
-			item = itemService.findItemById(item.getKode());
-
-			if (item != null) {
-				modelMap.put("item", item);
-			}
-		}
+	public String open(ModelMap modelMap) {
+		modelMap.put("item", itemService.findAllItem());
 
 		return "item";
 	}
 
-	@RequestMapping(value = "/item/add-item", method = RequestMethod.POST)
-	public String save(@ModelAttribute Item item, BindingResult result) {
+	@RequestMapping(value = "/item", method = RequestMethod.POST)
+	public String save(@ModelAttribute Item item, BindingResult result, ModelMap modelMap) {
 		if (result.hasErrors()) {
-			return "item";
+			return "/menu";
 		}
 
 		item = itemService.saveItem(item);
 
+		if (item != null) {
+			modelMap.put("item", itemService.findAllItem());
+		}
+		
 		return "item";
 	}
 }
