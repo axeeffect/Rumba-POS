@@ -17,7 +17,7 @@
 
 	<mvc:view-controller path="/" view-name="index" />
 
-	<mvc:resources mapping="/RES/**" location="/RES/" />
+	<mvc:resources mapping="/RES-INF/**" location="/RES-INF/" />
 
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/pages/" p:suffix=".jsp" />
 </beans>

@@ -54,18 +54,18 @@ jQuery(document).ready(function() {
 					// FORM VALIDATION //
 					jQuery("#form1").validate({
 						rules : {
-							itemcode  : "required",
-							itemname  : "required",
-							itemkind  : "required",
-							itemstock : "required",
-							itemprice : "required"
+							kode  	: "required",
+							nama  	: "required",
+							jenis 	: "required",
+							//stok 	: "required",
+							harga 	: "required"
 						},
 						messages : {
-							itemcode  : "Kode item kosong",
-							itemname  : "Nama item kosong",
-							itemkind  : "Jenis item kosong",
-							itemstock : "Jumlah/Stok kosong",
-							itemprice : "Harga satuan kosong"
+							kode  	: "Kode item kosong",
+							nama  	: "Nama item kosong",
+							jenis  	: "Jenis item kosong",
+							//stok	: "Jumlah/Stok item kosong",
+							harga 	: "Harga satuan kosong"
 						}
 					});
 
