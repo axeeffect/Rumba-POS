@@ -16,14 +16,13 @@ import javax.persistence.Table;
 public class User implements Serializable {
 
 	@Id
-	@Column(name = "username")
+	@Column(name = "username", nullable = false)
 	private String username;
 
-	@Column(name = "password")
+	@Column(name = "password", nullable = false)
 	private String password;
 
 	public User() {
-		/* Default constructor */
 	}
 
 	public User(String username, String password) {

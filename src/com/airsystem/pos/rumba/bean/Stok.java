@@ -2,8 +2,6 @@ package com.airsystem.pos.rumba.bean;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,8 +20,8 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name = "order", catalog = "rumba")
-public class Order implements Serializable {
+@Table(name = "stok", catalog = "rumba")
+public class Stok implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,28 +35,23 @@ public class Order implements Serializable {
 	@Column(name = "jumlah", nullable = false)
 	private Integer jumlah;
 
-	@Column(name = "total", nullable = false)
-	private Long total;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "item", nullable = false)
+	private Item item;
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "orders")
-	private Set<Item> items = new HashSet<Item>(0);
-
-	public Order() {
+	public Stok() {
 	}
 
-	public Order(Long kode, Date tanggal, Integer jumlah, Long total) {
+	public Stok(Long kode, Item item) {
+		this.kode = kode;
+		this.item = item;
+	}
+
+	public Stok(Long kode, Date tanggal, Integer jumlah, Item item) {
 		this.kode 	 = kode;
 		this.tanggal = tanggal;
 		this.jumlah  = jumlah;
-		this.total 	 = total;
-	}
-
-	public Order(Long kode, Date tanggal, Integer jumlah, Long total, Set<Item> items) {
-		this.kode 	 = kode;
-		this.tanggal = tanggal;
-		this.jumlah  = jumlah;
-		this.total 	 = total;
-		this.items 	 = items;
+		this.item 	 = item;
 	}
 
 	public Long getKode() {
@@ -84,19 +78,11 @@ public class Order implements Serializable {
 		this.jumlah = jumlah;
 	}
 
-	public Long getTotal() {
-		return total;
+	public Item getItem() {
+		return item;
 	}
 
-	public void setTotal(Long total) {
-		this.total = total;
-	}
-
-	public Set<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(Set<Item> items) {
-		this.items = items;
+	public void setItem(Item item) {
+		this.item = item;
 	}
 }

@@ -8,14 +8,14 @@
 <title>Menu Utama</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
 
 <!--[if IE 9]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie9.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie9.css"/>" type="text/css" />
 <![endif]-->
 
 <!--[if IE 8]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie8.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
 <body class="withvernav">
@@ -39,7 +39,7 @@
 
 				<!--userinfo-->
 				<div class="userinfo">
-					<img alt="" src="<c:url value="/RES/images/sales.png"/>" />
+					<img alt="" src="<c:url value="/RES-INF/images/sales.png"/>" />
 					<span>Rumba Sales</span>
 				</div>
 
@@ -48,7 +48,7 @@
 
 					<!--avatar-->
 					<div class="avatar">
-						<a href=""><img alt="" src="<c:url value="/RES/images/salesbig.png"/>" /></a>
+						<a href=""><img alt="" src="<c:url value="/RES-INF/images/salesbig.png"/>" /></a>
 					</div>
 
 					<!--userdata-->
@@ -83,18 +83,18 @@
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/general.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
 
 	<!--[if lte IE 8]>
-		<script src="<c:url value="/RES/scripts/excanvas.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/excanvas.js"/>" type="text/javascript"></script>
 	<![endif]-->
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 </body>
 </html>

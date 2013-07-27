@@ -8,14 +8,14 @@
 <title>Rumba Collection &middot; POS</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
 
 <!--[if IE 9]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie9.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie9.css"/>" type="text/css" />
 <![endif]-->
 
 <!--[if IE 8]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie8.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
 <body class="loginpage">
@@ -43,7 +43,7 @@
 				<div class="loginmsg">Password yang Anda masukkan salah.</div>
 				<div class="loginf">
 					<div class="thumb">
-						<img alt="" src="<c:url value="/RES/images/wrong-password.png"/>" />
+						<img alt="" src="<c:url value="/RES-INF/images/wrong-password.png"/>" />
 					</div>
 
 				<!--loginf-->
@@ -71,15 +71,15 @@
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/index.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/index.js"/>" type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 </body>
 </html>

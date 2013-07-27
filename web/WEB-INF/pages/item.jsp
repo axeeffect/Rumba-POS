@@ -10,15 +10,15 @@
 <title>Master Data</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES/styles/default.css"/>" type="text/css" />
-<link rel="stylesheet" href="<c:url value="/RES/styles/displaytag.css"/>" type="text/css">
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/displaytag.css"/>" type="text/css">
 
 <!--[if IE 9]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie9.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie9.css"/>" type="text/css" />
 <![endif]-->
 
 <!--[if IE 8]>
-    <link rel="stylesheet" media="screen" href="<c:url value="/RES/styles/ie8.css"/>" type="text/css" />
+    <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
 <body class="withvernav">
@@ -42,7 +42,7 @@
 
 				<!--userinfo-->
 				<div class="userinfo">
-					<img alt="" src="<c:url value="/RES/images/sales.png"/>" />
+					<img alt="" src="<c:url value="/RES-INF/images/sales.png"/>" />
 					<span>Rumba Sales</span>
 				</div>
 
@@ -51,7 +51,7 @@
 
 					<!--avatar-->
 					<div class="avatar">
-						<a href=""><img alt="" src="<c:url value="/RES/images/salesbig.png"/>" /></a>
+						<a href=""><img alt="" src="<c:url value="/RES-INF/images/salesbig.png"/>" /></a>
 					</div>
 
 					<!--userdata-->
@@ -95,31 +95,31 @@
 				<p>
 					<label>Kode Item</label>
 					<span class="field">
-						<input type="text" name="kode" id="itemcode" class="smallinput" />
+						<input id="kode" class="smallinput" type="text" name="kode" size="5" />
 					</span>
 				</p>
 				<p>
 					<label>Nama Item</label>
 					<span class="field">
-						<input type="text" name="nama" id="itemname" class="longinput" />
+						<input id="nama" class="longinput" type="text" name="nama" />
 					</span>
 				</p>
 				<p>
 					<label>Jenis Item</label>
 					<span class="field">
-						<input type="text" name="jenis" id="itemkind" class="mediuminput" />
+						<input id="jenis" class="mediuminput" type="text" name="jenis" />
 					</span>
 				</p>
-				<p>
+				<!-- <p>
 					<label>Jumlah</label>
 					<span class="field">
-						<input type="number" name="stok" id="itemstock" class="smallinput" />
+						<input id="stok" class="smallinput" type="number" name="stok" />
 					</span>
-				</p>
+				</p> -->
 				<p>
 					<label>Harga Satuan</label>
 					<span class="field">
-						<input type="text" name="harga" id="itemprice" class="mediuminput" />
+						<input id="harga" class="mediuminput" type="text" name="harga" size="9" />
 					</span>
 				</p>
 				<br />
@@ -135,13 +135,12 @@
 							<display:column property="kode" title="Kode Item" sortable="true" />
 							<display:column property="nama" title="Nama Item" sortable="true" />
 							<display:column property="jenis" title="Jenis Item" sortable="true" />
-							<display:column property="stok" title="Stok" sortable="true" />
+							<%-- <display:column property="stok" title="Stok" sortable="true" /> --%>
 							<display:column property="harga" title="Harga Satuan" sortable="true" />
-							<display:column title="">
-								<a href="/Rumba/item" paramId="id" paramName="data" paramProperty="kode">Ubah</a>
-							</display:column>
-							<display:column title="">
-								<a href="/Rumba/item" paramId="id" paramName="data" paramProperty="kode">Hapus</a>
+							<display:column title="Action">
+								<button class="submit radius2" onclick="/'">Ubah</button>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<button class="submit radius2" onclick="/'">Hapus</button>
 							</display:column>
 						</display:table>
 					</td>
@@ -152,47 +151,24 @@
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.validate.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/jquery.tagsinput.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/charCount.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/ui.spinner.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/chosen.jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES/scripts/forms.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.validate.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/jquery.tagsinput.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/charCount.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/ui.spinner.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/chosen.jquery.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/forms.js"/>" type="text/javascript"></script>
 
 	<!--[if lte IE 8]>
-		<script src="<c:url value="/RES/scripts/excanvas.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/excanvas.js"/>" type="text/javascript"></script>
 	<![endif]-->
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
-
-	<script language="javascript" type="text/javascript">
-		document.onkeydown = checkKeycode
-		function checkKeycode(e) {
-			var keycode;
-			if (window.event) {
-				keycode = window.event.keyCode;
-			} else if (e) {
-				keycode = e.which;
-			}
-
-			if (keycode == 116 || (e.ctrlKey && keycode == 82)) {
-				if (e.preventDefault) {
-					e.preventDefault();
-					e.stopPropagation();
-				} else {
-					window.event.returnValue = false;
-					window.event.keyCode = 0;
-					window.status = "Refresh is disabled";
-				}
-			}
-		}
-	</script>
 </body>
 </html>
