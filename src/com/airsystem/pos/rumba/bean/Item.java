@@ -9,9 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -39,10 +36,8 @@ public class Item implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
 	private Set<Stok> stoks = new HashSet<Stok>(0);
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "detil", catalog = "rumba", joinColumns = { @JoinColumn(name = "item", nullable = false, updatable = false) },
-												  inverseJoinColumns = { @JoinColumn(name = "order", nullable = false, updatable = false) })
-	private Set<Order> orders = new HashSet<Order>(0);
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.item", cascade = CascadeType.ALL)
+	private Set<Detail> details = new HashSet<Detail>(0);
 
 	public Item() {
 	}
@@ -61,14 +56,14 @@ public class Item implements Serializable {
 		this.harga = harga;
 		this.stoks = stoks;
 	}
-
-	public Item(String kode, String nama, String jenis, Long harga, Set<Stok> stoks, Set<Order> orders) {
-		this.kode   = kode;
-		this.nama   = nama;
-		this.jenis  = jenis;
-		this.harga  = harga;
-		this.stoks  = stoks;
-		this.orders = orders;
+	
+	public Item(String kode, String nama, String jenis, Long harga, Set<Stok> stoks, Set<Detail> details) {
+		this.kode  	 = kode;
+		this.nama  	 = nama;
+		this.jenis 	 = jenis;
+		this.harga 	 = harga;
+		this.stoks 	 = stoks;
+		this.details = details;
 	}
 
 	public String getKode() {
@@ -111,11 +106,11 @@ public class Item implements Serializable {
 		this.stoks = stoks;
 	}
 
-	public Set<Order> getOrders() {
-		return orders;
+	public Set<Detail> getDetails() {
+		return details;
 	}
 
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
+	public void setDetails(Set<Detail> details) {
+		this.details = details;
 	}
 }

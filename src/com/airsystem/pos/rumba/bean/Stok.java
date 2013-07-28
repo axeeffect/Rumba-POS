@@ -36,7 +36,7 @@ public class Stok implements Serializable {
 	private Integer jumlah;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "item", nullable = false)
+	@JoinColumn(name = "kode_item", nullable = false)
 	private Item item;
 
 	public Stok() {

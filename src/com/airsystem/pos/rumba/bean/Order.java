@@ -11,7 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,31 +33,21 @@ public class Order implements Serializable {
 	@Column(name = "tanggal", length = 10, nullable = false)
 	private Date tanggal;
 
-	@Column(name = "jumlah", nullable = false)
-	private Integer jumlah;
-
-	@Column(name = "total", nullable = false)
-	private Long total;
-
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "orders")
-	private Set<Item> items = new HashSet<Item>(0);
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order")
+	private Set<Detail> details = new HashSet<Detail>(0);
 
 	public Order() {
 	}
 
-	public Order(Long kode, Date tanggal, Integer jumlah, Long total) {
+	public Order(Long kode, Date tanggal) {
 		this.kode 	 = kode;
 		this.tanggal = tanggal;
-		this.jumlah  = jumlah;
-		this.total 	 = total;
 	}
 
-	public Order(Long kode, Date tanggal, Integer jumlah, Long total, Set<Item> items) {
+	public Order(Long kode, Date tanggal, Set<Detail> details) {
 		this.kode 	 = kode;
 		this.tanggal = tanggal;
-		this.jumlah  = jumlah;
-		this.total 	 = total;
-		this.items 	 = items;
+		this.details = details;
 	}
 
 	public Long getKode() {
@@ -76,27 +66,11 @@ public class Order implements Serializable {
 		this.tanggal = tanggal;
 	}
 
-	public Integer getJumlah() {
-		return jumlah;
+	public Set<Detail> getDetails() {
+		return details;
 	}
 
-	public void setJumlah(Integer jumlah) {
-		this.jumlah = jumlah;
-	}
-
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
-
-	public Set<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(Set<Item> items) {
-		this.items = items;
+	public void setDetails(Set<Detail> details) {
+		this.details = details;
 	}
 }
