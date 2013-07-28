@@ -18,8 +18,8 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "detail", catalog = "rumba")
 @AssociationOverrides({
-		@AssociationOverride(name = "pk.item",  joinColumns = @JoinColumn(name = "kode_item")),
-		@AssociationOverride(name = "pk.order", joinColumns = @JoinColumn(name = "kode_order")) })
+		@AssociationOverride(name = "pk.item",  joinColumns = @JoinColumn(name = "kode_item",  referencedColumnName = "kode")),
+		@AssociationOverride(name = "pk.order", joinColumns = @JoinColumn(name = "kode_order", referencedColumnName = "kode")) })
 public class Detail implements Serializable {
 
 	@EmbeddedId

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
@@ -33,7 +36,8 @@ public class Order implements Serializable {
 	@Column(name = "tanggal", length = 10, nullable = false)
 	private Date tanggal;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order", cascade = CascadeType.ALL)
+	@ForeignKey(name = "FK_Order")
 	private Set<Detail> details = new HashSet<Detail>(0);
 
 	public Order() {

@@ -15,12 +15,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
  */
 
 @Entity
 @Table(name = "stok", catalog = "rumba")
+@DynamicUpdate(value = true)
 public class Stok implements Serializable {
 
 	@Id
@@ -35,7 +38,7 @@ public class Stok implements Serializable {
 	@Column(name = "jumlah", nullable = false)
 	private Integer jumlah;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "kode_item", nullable = false)
 	private Item item;
 

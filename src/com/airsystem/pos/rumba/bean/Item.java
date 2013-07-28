@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForeignKey;
+
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
  */
@@ -33,10 +35,12 @@ public class Item implements Serializable {
 	@Column(name = "harga", nullable = false)
 	private Long harga;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = CascadeType.ALL)
+	@ForeignKey(name = "FK_Stok")
 	private Set<Stok> stoks = new HashSet<Stok>(0);
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.item", cascade = CascadeType.ALL)
+	@ForeignKey(name = "FK_Item")
 	private Set<Detail> details = new HashSet<Detail>(0);
 
 	public Item() {
