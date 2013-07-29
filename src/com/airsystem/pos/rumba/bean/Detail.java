@@ -18,18 +18,18 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "detail", catalog = "rumba")
 @AssociationOverrides({
-		@AssociationOverride(name = "pk.item",  joinColumns = @JoinColumn(name = "kode_item",  referencedColumnName = "kode")),
-		@AssociationOverride(name = "pk.order", joinColumns = @JoinColumn(name = "kode_order", referencedColumnName = "kode")) })
+		@AssociationOverride(name = "pk.item",  joinColumns = @JoinColumn(name = "kode_item")),
+		@AssociationOverride(name = "pk.order", joinColumns = @JoinColumn(name = "kode_order")) })
 public class Detail implements Serializable {
 
 	@EmbeddedId
 	private DetailId pk = new DetailId();
 
-	@Column(name = "jumlah", nullable = false)
-	private Integer jumlah;
+	@Column(name = "jumlah")
+	private int jumlah;
 
-	@Column(name = "total", nullable = false)
-	private Long total;
+	@Column(name = "total")
+	private long total;
 
 	public Detail() {
 	}
@@ -60,19 +60,19 @@ public class Detail implements Serializable {
 		getPk().setOrder(order);
 	}
 
-	public Integer getJumlah() {
+	public int getJumlah() {
 		return jumlah;
 	}
 
-	public void setJumlah(Integer jumlah) {
+	public void setJumlah(int jumlah) {
 		this.jumlah = jumlah;
 	}
 
-	public Long getTotal() {
+	public long getTotal() {
 		return total;
 	}
 
-	public void setTotal(Long total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 

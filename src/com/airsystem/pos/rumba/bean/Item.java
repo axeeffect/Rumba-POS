@@ -23,21 +23,20 @@ import org.hibernate.annotations.ForeignKey;
 public class Item implements Serializable {
 
 	@Id
-	@Column(name = "kode", nullable = false)
+	@Column(name = "kode")
 	private String kode;
 
-	@Column(name = "nama", nullable = false)
+	@Column(name = "nama")
 	private String nama;
 
-	@Column(name = "jenis", nullable = false)
+	@Column(name = "jenis")
 	private String jenis;
 
-	@Column(name = "harga", nullable = false)
-	private Long harga;
+	@Column(name = "jumlah")
+	private int jumlah;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = CascadeType.ALL)
-	@ForeignKey(name = "FK_Stok")
-	private Set<Stok> stoks = new HashSet<Stok>(0);
+	@Column(name = "harga")
+	private long harga;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.item", cascade = CascadeType.ALL)
 	@ForeignKey(name = "FK_Item")
@@ -46,27 +45,20 @@ public class Item implements Serializable {
 	public Item() {
 	}
 
-	public Item(String kode, String nama, String jenis, Long harga) {
-		this.kode  = kode;
-		this.nama  = nama;
-		this.jenis = jenis;
-		this.harga = harga;
+	public Item(String kode, String nama, String jenis, int jumlah, long harga) {
+		this.kode 	= kode;
+		this.nama 	= nama;
+		this.jenis  = jenis;
+		this.jumlah = jumlah;
+		this.harga  = harga;
 	}
 
-	public Item(String kode, String nama, String jenis, Long harga, Set<Stok> stoks) {
-		this.kode  = kode;
-		this.nama  = nama;
-		this.jenis = jenis;
-		this.harga = harga;
-		this.stoks = stoks;
-	}
-	
-	public Item(String kode, String nama, String jenis, Long harga, Set<Stok> stoks, Set<Detail> details) {
-		this.kode  	 = kode;
-		this.nama  	 = nama;
+	public Item(String kode, String nama, String jenis, int jumlah, long harga,	Set<Detail> details) {
+		this.kode 	 = kode;
+		this.nama 	 = nama;
 		this.jenis 	 = jenis;
+		this.jumlah  = jumlah;
 		this.harga 	 = harga;
-		this.stoks 	 = stoks;
 		this.details = details;
 	}
 
@@ -94,20 +86,20 @@ public class Item implements Serializable {
 		this.jenis = jenis;
 	}
 
-	public Long getHarga() {
+	public int getJumlah() {
+		return jumlah;
+	}
+
+	public void setJumlah(int jumlah) {
+		this.jumlah = jumlah;
+	}
+
+	public long getHarga() {
 		return harga;
 	}
 
-	public void setHarga(Long harga) {
+	public void setHarga(long harga) {
 		this.harga = harga;
-	}
-
-	public Set<Stok> getStoks() {
-		return stoks;
-	}
-
-	public void setStoks(Set<Stok> stoks) {
-		this.stoks = stoks;
 	}
 
 	public Set<Detail> getDetails() {

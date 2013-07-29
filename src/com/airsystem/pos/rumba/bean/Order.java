@@ -29,11 +29,11 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "kode", unique = true, nullable = false)
-	private Long kode;
+	@Column(name = "kode")
+	private long kode;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "tanggal", length = 10, nullable = false)
+	@Column(name = "tanggal", length = 10)
 	private Date tanggal;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order", cascade = CascadeType.ALL)
@@ -43,22 +43,22 @@ public class Order implements Serializable {
 	public Order() {
 	}
 
-	public Order(Long kode, Date tanggal) {
+	public Order(long kode, Date tanggal) {
 		this.kode 	 = kode;
 		this.tanggal = tanggal;
 	}
 
-	public Order(Long kode, Date tanggal, Set<Detail> details) {
+	public Order(long kode, Date tanggal, Set<Detail> details) {
 		this.kode 	 = kode;
 		this.tanggal = tanggal;
 		this.details = details;
 	}
 
-	public Long getKode() {
+	public long getKode() {
 		return kode;
 	}
 
-	public void setKode(Long kode) {
+	public void setKode(long kode) {
 		this.kode = kode;
 	}
 

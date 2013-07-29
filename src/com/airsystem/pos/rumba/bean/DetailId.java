@@ -6,14 +6,11 @@ import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.DynamicUpdate;
-
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
  */
 
 @Embeddable
-@DynamicUpdate(value = true)
 public class DetailId implements Serializable {
 
 	@ManyToOne(fetch = FetchType.EAGER)
