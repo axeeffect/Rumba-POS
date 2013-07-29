@@ -26,7 +26,17 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
+	public Item findItemById(String id) {
+		return itemDao.findById(id);
+	}
+
+	@Transactional(readOnly = false)
 	public Item saveItem(Item item) {
 		return itemDao.save(item);
+	}
+
+	@Transactional(readOnly = false)
+	public void deleteItem(String id) {
+		itemDao.deleteById(id);
 	}
 }

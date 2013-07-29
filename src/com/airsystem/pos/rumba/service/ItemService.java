@@ -10,6 +10,10 @@ import com.airsystem.pos.rumba.bean.Item;
 public interface ItemService {
 
 	public List<Item> findAllItem();
-	
+
+	public Item findItemById(String id);
+
 	public Item saveItem(Item item);
+
+	public void deleteItem(String id);
 }
