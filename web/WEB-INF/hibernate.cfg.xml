@@ -16,10 +16,9 @@
 		<property name="c3p0.timeout">1024</property>
 		<property name="show_sql">true</property>
 
-		<!-- Hibernate Domain -->
+		<!-- Hibernate Beans -->
 		<mapping class="com.airsystem.pos.rumba.bean.User" />
 		<mapping class="com.airsystem.pos.rumba.bean.Item" />
-		<mapping class="com.airsystem.pos.rumba.bean.Stok" />
 		<mapping class="com.airsystem.pos.rumba.bean.Order" />
 		<mapping class="com.airsystem.pos.rumba.bean.Detail" />
 	</session-factory>
