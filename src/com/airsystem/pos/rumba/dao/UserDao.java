@@ -10,7 +10,7 @@ import com.airsystem.pos.rumba.bean.User;
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
  */
 
-@Repository("userDao")
+@Repository(value = "userDao")
 public class UserDao extends AbstractDao<User, Serializable> {
 
 	public UserDao() {

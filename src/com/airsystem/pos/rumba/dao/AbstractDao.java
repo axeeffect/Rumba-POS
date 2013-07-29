@@ -46,7 +46,7 @@ public abstract class AbstractDao<T, ID extends Serializable> {
 		sessionFactory.getCurrentSession().delete(bean);
 	}
 
-	public void delete(ID id) {
+	public void deleteById(ID id) {
 		delete(findById(id));
 	}
 }

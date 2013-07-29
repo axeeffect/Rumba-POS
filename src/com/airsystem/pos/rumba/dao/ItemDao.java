@@ -10,7 +10,7 @@ import com.airsystem.pos.rumba.bean.Item;
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
  */
 
-@Repository("itemDao")
+@Repository(value = "itemDao")
 public class ItemDao extends AbstractDao<Item, Serializable> {
 
 	public ItemDao() {
