@@ -57,14 +57,14 @@ jQuery(document).ready(function() {
 							kode  	: "required",
 							nama  	: "required",
 							jenis 	: "required",
-							//stok 	: "required",
+							jumlah 	: "required",
 							harga 	: "required"
 						},
 						messages : {
 							kode  	: "Kode item kosong",
 							nama  	: "Nama item kosong",
 							jenis  	: "Jenis item kosong",
-							//stok	: "Jumlah/Stok item kosong",
+							jumlah	: "Jumlah item kosong",
 							harga 	: "Harga satuan kosong"
 						}
 					});
