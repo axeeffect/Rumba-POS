@@ -74,7 +74,7 @@
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li>
-					<a href="#order-item">
+					<a href="<c:url value="order"/>">
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li>
