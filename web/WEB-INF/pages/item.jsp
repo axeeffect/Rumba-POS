@@ -91,62 +91,106 @@
 
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
-			<form id="form1" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="item"/>">
-				<p>
-					<label>Kode Item</label>
-					<span class="field">
-						<input id="kode" class="smallinput" type="text" name="kode" size="5" />
-					</span>
-				</p>
-				<p>
-					<label>Nama Item</label>
-					<span class="field">
-						<input id="nama" class="longinput" type="text" name="nama" />
-					</span>
-				</p>
-				<p>
-					<label>Jenis Item</label>
-					<span class="field">
-						<input id="jenis" class="mediuminput" type="text" name="jenis" />
-					</span>
-				</p>
-				<!-- <p>
-					<label>Jumlah</label>
-					<span class="field">
-						<input id="stok" class="smallinput" type="number" name="stok" />
-					</span>
-				</p> -->
-				<p>
-					<label>Harga Satuan</label>
-					<span class="field">
-						<input id="harga" class="mediuminput" type="text" name="harga" size="9" />
-					</span>
-				</p>
-				<br />
-				<p class="stdformbutton">
-					<button class="submit radius2">Simpan</button>
-				</p>
-				<br clear="all" />
+			<form id="form1" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="/item"/>">
+			<input type="hidden" name="mode" value="${mode}"/>
 
-				<table id="dtag" style="margin-left: 50px" width="85%">
-					<tr>
-					<td colspan="3">
-						<display:table name="item" id="data" requestURI="" pagesize="10">
-							<display:column property="kode" title="Kode Item" sortable="true" />
-							<display:column property="nama" title="Nama Item" sortable="true" />
-							<display:column property="jenis" title="Jenis Item" sortable="true" />
-							<%-- <display:column property="stok" title="Stok" sortable="true" /> --%>
-							<display:column property="harga" title="Harga Satuan" sortable="true" />
-							<display:column title="Action">
-								<button class="submit radius2" onclick="/'">Ubah</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button class="submit radius2" onclick="/'">Hapus</button>
-							</display:column>
-						</display:table>
-					</td>
-					</tr>
-				</table>
+			<!-- ADD ITEM -->
+			<c:if test="${mode == 0}">
+			<p>
+			<label>Kode Item</label>
+				<span class="field">
+					<input id="kode" class="smallinput" type="text" name="kode" maxlength="5" />
+				</span>
+			</p>
+			<p>
+			<label>Nama Item</label>
+				<span class="field">
+					<input id="nama" class="longinput" type="text" name="nama" />
+				</span>
+			</p>
+			<p>
+			<label>Jenis Item</label>
+				<span class="field">
+					<input id="jenis" class="mediuminput" type="text" name="jenis" />
+				</span>
+			</p>
+			<p>
+			<label>Jumlah Item</label>
+				<span class="field">
+					<input id="jumlah" class="smallinput" type="text" name="jumlah" maxlength="3" />
+				</span>
+			</p>
+			<p>
+			<label>Harga Satuan</label>
+				<span class="field">
+					<input id="harga" class="mediuminput" type="text" name="harga" maxlength="9" />
+				</span>
+			</p>
+			</c:if>
+
+			<!-- UPDATE ITEM -->
+			<c:if test="${mode == 1}">
+			<p>
+			<label>Kode Item</label>
+				<span class="field">
+					<input id="kode" class="smallinput" type="text" name="kode" value="${item.kode}" readonly="readonly" />
+				</span>
+			</p>
+			<p>
+			<label>Nama Item</label>
+				<span class="field">
+					<input id="nama" class="longinput" type="text" name="nama" value="${item.nama}" />
+				</span>
+			</p>
+			<p>
+			<label>Jenis Item</label>
+				<span class="field">
+					<input id="jenis" class="mediuminput" type="text" name="jenis" value="${item.jenis}" />
+				</span>
+			</p>
+			<p>
+			<label>Jumlah Item</label>
+				<span class="field">
+					<input id="jumlah" class="smallinput" type="text" name="jumlah" value="${item.jumlah}" maxlength="3" />
+				</span>
+			</p>
+			<p>
+			<label>Harga Satuan</label>
+				<span class="field">
+					<input id="harga" class="mediuminput" type="text" name="harga" value="${item.harga}" maxlength="9" />
+				</span>
+			</p>
+			</c:if>
+
+			<!-- BUTTON ACTION -->
+			<br />
+			<p class="stdformbutton">
+				<button class="submit radius2">Simpan</button>
+			</p>
+			<br clear="all" />
 			</form>
+
+			<!-- DISPLAY TAG TABLE -->
+			<c:if test="${mode == 0}">
+			<table id="dtag" style="margin-left: 50px" width="85%">
+			<tr>
+			<td colspan="3">
+				<display:table name="item" id="data" requestURI="" pagesize="10">
+					<display:column property="kode"   title="Kode Item"    sortable="true" />
+					<display:column property="nama"   title="Nama Item"    sortable="true" />
+					<display:column property="jenis"  title="Jenis Item"   sortable="true" />
+					<display:column property="jumlah" title="Jumlah Item"  sortable="true" />
+					<display:column property="harga"  title="Harga Satuan" sortable="true" />
+					<display:column title="Action">
+					<c:set var="id" value="${data.kode}" />
+						<button style="margin-right: 50px" onclick="window.location='<c:url value="item/edit?kode=${id}"/>'">Ubah</button>
+						<button style="margin-right: 50px" onclick="window.location='<c:url value="item/delete?kode=${id}"/>'">Hapus</button>
+					</display:column>
+				</display:table>
+			</td>
+			</tr>
+			</table>
+			</c:if>
 		</div>
 	</div>
 
