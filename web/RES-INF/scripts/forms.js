@@ -52,6 +52,7 @@ jQuery(document).ready(function() {
 					});
 
 					// FORM VALIDATION //
+					/* FORM 1 */
 					jQuery("#form1").validate({
 						rules : {
 							kode  	: "required",
@@ -66,6 +67,22 @@ jQuery(document).ready(function() {
 							jenis  	: "Jenis item kosong",
 							jumlah	: "Jumlah item kosong",
 							harga 	: "Harga satuan kosong"
+						}
+					});
+
+					/* FORM 2 */
+					jQuery("#form2").validate({
+						rules : {
+							tanggal : "required",
+							nama  	: "required",
+							harga 	: "required",
+							jumlah 	: "required",
+						},
+						messages : {
+							tanggal : "Tanggal order kosong",
+							nama  	: "Nama item kosong",
+							harga  	: "Harga per item kosong",
+							jumlah	: "Jumlah order kosong",
 						}
 					});
 
