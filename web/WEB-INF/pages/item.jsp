@@ -185,7 +185,7 @@
 
 			<!-- DISPLAY TAG TABLE -->
 			<c:if test="${mode == 0}">
-			<table id="dtag" style="margin-left: 50px" width="85%">
+			<table id="dtag" style="margin: 0 auto;" width="80%">
 			<tr>
 			<td colspan="3">
 				<display:table name="item" id="data" requestURI="" pagesize="10">
