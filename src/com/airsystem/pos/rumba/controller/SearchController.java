@@ -18,9 +18,9 @@ public class SearchController {
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	@RequestMapping(value = "/item/search", method = RequestMethod.GET)
 	public String searchWindow(ModelMap modelMap) {
-		modelMap.put("item", itemService.findAllItem());
+		modelMap.put("search", itemService.findAllItem());
 
 		return "search";
 	}

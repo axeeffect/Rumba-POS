@@ -25,14 +25,14 @@
 	<table id="dtag" width="100%">
 	<tr>
 	<td colspan="3">
-		<display:table name="item" id="data" requestURI="" pagesize="10">
+		<display:table name="search" id="item" requestURI="" pagesize="10">
 			<display:column property="nama"   title="Nama Item"    sortable="true" />
 			<display:column property="jenis"  title="Jenis Item"   sortable="true" />
 			<display:column property="jumlah" title="Jumlah Item"  sortable="true" />
 			<display:column property="harga"  title="Harga Satuan" sortable="true" />
 			<display:column title="Action">
-			<c:set var="id" value="${data.kode}" />
-				<button onclick="pickItem('data')">Pilih</button>
+			<c:set var="id" value="${item.kode}" />
+				<button class="action radius2" onclick="pickItem('item')">Pilih</button>
 			</display:column>
 		</display:table>
 	</td>
@@ -78,13 +78,10 @@
 				rows[i].onclick = function() {
 					var cell1 = this.getElementsByTagName("td")[0];
 					var col1Value = cell1.innerHTML;
-					var cell2 = this.getElementsByTagName("td")[1];
-					var col2Value = cell2.innerHTML;
 					var cell4 = this.getElementsByTagName("td")[3];
 					var col4Value = cell4.innerHTML;
 
 					window.opener.document.forms[0].nama.value  = col1Value;
-					window.opener.document.forms[0].jenis.value = col2Value;
 					window.opener.document.forms[0].harga.value = col4Value;
 					window.close();
 				}
