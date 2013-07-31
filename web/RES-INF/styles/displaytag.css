@@ -7,6 +7,7 @@
 }
 
 #dtag th,td {
+	color: black;
 	padding: 2px 4px 2px 4px !important;
 	text-align: left;
 	vertical-align: top;

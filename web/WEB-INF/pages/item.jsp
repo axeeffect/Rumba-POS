@@ -164,9 +164,22 @@
 
 			<!-- BUTTON ACTION -->
 			<br />
+			<!-- Item Page -->
+			<c:if test="${mode == 0}">
 			<p class="stdformbutton">
 				<button class="submit radius2">Simpan</button>
+				<input class="reset radius2" type="reset" value="Keluar" onclick="window.location='<c:url value="menu"/>'" />
 			</p>
+			</c:if>
+
+			<!-- Item Edit Page -->
+			<c:if test="${mode == 1}">
+			<p class="stdformbutton">
+				<button class="submit radius2">Ubah</button>
+				<input class="reset radius2" type="reset" value="Batal" onclick="window.location='<c:url value="/item/cancel"/>'" />
+			</p>
+			</c:if>
+
 			<br clear="all" />
 			</form>
 
@@ -183,8 +196,8 @@
 					<display:column property="harga"  title="Harga Satuan" sortable="true" />
 					<display:column title="Action">
 					<c:set var="id" value="${data.kode}" />
-						<button style="margin-right: 50px" onclick="window.location='<c:url value="item/edit?kode=${id}"/>'">Ubah</button>
-						<button style="margin-right: 50px" onclick="window.location='<c:url value="item/delete?kode=${id}"/>'">Hapus</button>
+						<button class="action radius2" style="margin-right: 20px" onclick="window.location='<c:url value="item/edit?kode=${id}"/>'">Ubah</button>
+						<button class="action radius2" style="margin-right: 20px" onclick="window.location='<c:url value="item/delete?kode=${id}"/>'">Hapus</button>
 					</display:column>
 				</display:table>
 			</td>

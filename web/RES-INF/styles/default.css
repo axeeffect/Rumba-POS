@@ -948,6 +948,13 @@ form button:active {
 	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+button { border: 1px solid #f0882c; background: #fb9337; color: #fff; cursor: pointer; padding: 7px 10px; font-weight: bold; }
+button.action:hover { background: #485B79; border: 1px solid #3f526f; color: #fff; }
+button:active { 
+	-moz-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3); -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3); 
+	box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 form input.smallinput, form textarea.smallinput { width: 40%; }
 form input.mediuminput, form textarea.mediuminput { width: 60%; }
 form input.longinput, form textarea.longinput { width: 85%; }

@@ -24,12 +24,17 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 
-	@RequestMapping(value = "/item", method = RequestMethod.GET)
+	@RequestMapping(value = "/item")
 	public String itemPage(ModelMap modelMap) {
 		modelMap.put("mode", Constant.MODE_CREATE);
 		modelMap.put("item", itemService.findAllItem());
 
 		return "item";
+	}
+
+	@RequestMapping(value = "/item/cancel")
+	public String itemCancelPage() {
+		return "redirect:/item";
 	}
 
 	@RequestMapping(value = "/item/edit", method = RequestMethod.GET)
@@ -47,12 +52,8 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "/item/delete", method = RequestMethod.GET)
-	public String itemDeletePage(@ModelAttribute Item item,	BindingResult result, ModelMap modelMap) {
-		if (result.hasErrors()) {
-			return "redirect:/item";
-		}
-
-		if (StringUtils.isNotBlank(item.getKode())) {
+	public String itemDeletePage(@ModelAttribute Item item, ModelMap modelMap) {
+		if (item != null && StringUtils.isNotBlank(item.getKode())) {
 			itemService.deleteItem(item.getKode());
 		}
 
