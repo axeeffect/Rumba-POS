@@ -91,30 +91,23 @@
 
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
-			<form id="form1" onkeypress="return event.keyCode != 13;" class="stdform" method="" action="">
+			<form id="form2" onkeypress="return event.keyCode != 13;" class="stdform" method="" action="">
 			<p>
 			<label>Tanggal Order</label>
 				<span class="field">
-					<input class="smallinput" type="text" maxlength="10" />
-					<button style="margin-left: 20px" class="submit radius2" onclick="SearchWindow('<c:url value="/search"/>','Cari',600,400); return false;">Cari</button>
+					<input id="tanggal" class="smallinput" type="date" name="tanggal" maxlength="10" />
 				</span>
 			</p>
 			<p>
 			<label>Nama Item</label>
 				<span class="field">
-					<input class="longinput" type="text" name="nama" readonly="readonly" />
-				</span>
-			</p>
-			<p>
-			<label>Jenis Item</label>
-				<span class="field">
-					<input class="mediuminput" type="text" name="jenis" readonly="readonly" />
+					<input id="nama" class="longinput" type="text" name="nama" readonly="readonly" />
 				</span>
 			</p>
 			<p>
 			<label>Harga per Item</label>
 				<span class="field">
-					<input class="mediuminput" type="text" name="harga" readonly="readonly" />
+					<input id="harga" class="mediuminput" type="text" name="harga" readonly="readonly" />
 				</span>
 			</p>
 			<p>
@@ -125,7 +118,8 @@
 			</p>
 			<br />
 
-			<p class="stdformbutton">
+			<p style="margin: 0 auto;" class="stdformbutton">
+				<button style="margin-left: 20px" class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari',600,400); return false;">Cari</button>
 				<button class="submit radius2">Tambah</button>
 				<button class="submit radius2" onclick="return false;">Order</button>
 			</p>
