@@ -91,7 +91,9 @@
 
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
-			<form id="form2" onkeypress="return event.keyCode != 13;" class="stdform" method="" action="">
+			<form id="form2" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="order"/>">
+			<input type="hidden" name="mode" value="${mode}"/>
+
 			<p>
 			<label>Tanggal Order</label>
 				<span class="field">
@@ -118,13 +120,32 @@
 			</p>
 			<br />
 
+			<!-- HIDDEN OBJECT -->
+			<input type="hidden" name="total" />
+			<input type="hidden" name="stok" />
+
 			<p style="margin: 0 auto;" class="stdformbutton">
+				<c:if test="${mode == 2}">
 				<button style="margin-left: 20px" class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari',600,400); return false;">Cari</button>
 				<button class="submit radius2">Tambah</button>
 				<button class="submit radius2" onclick="return false;">Order</button>
+				</c:if>
 			</p>
 			<br clear="all" />
 			</form>
+
+			<table id="dtag" style="margin: 0 auto;" width="80%">
+			<tr>
+			<td colspan="3">
+				<display:table name="cart" id="item" requestURI="" pagesize="10">
+					<display:column property="nama"   title="Nama Item" />
+					<display:column property="harga"  title="Harga per Item" />
+					<display:column property="jumlah" title="Jumlah Order" />
+					<display:column property="total" title="Total" />
+				</display:table>
+			</td>
+			</tr>
+			</table>
 		</div>
 	</div>
 
