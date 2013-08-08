@@ -130,15 +130,14 @@
 			<p style="margin-left: 140px" class="stdformbutton">
 				<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
 				<button class="submit radius2">Tambah</button>
+				<c:if test="${mode == 2}">
+					<button id="btnOrder" type="button" class="submit radius2">Order</button>
+				</c:if>
 			</p>
 			</form>
-
-			<!-- Order Submit Page -->
-			<c:if test="${mode == 2}">
-			<form style="margin-left: 260px; margin-top: -51px;" class="stdformbutton" method="post" action="<c:url value="order/submit"/>">
-				<button class="submit radius2">Order</button>
+			<form id="formTemp" style="visibility:hidden;" method="post" action="<c:url value="order/submit"/>">
+				<input id="tanggal" type="text" name="tanggal" value="${tanggal}" maxlength="10" />
 			</form>
-			</c:if>
 			<br clear="all" />
 
 			<!-- DISPLAY TAG TABLE -->
@@ -146,12 +145,13 @@
 			<tr>
 			<td colspan="3">
 				<display:table id="order" name="cart" requestURI="" pagesize="10">
+					<display:column property="kode"  title="Kode Item" />
 					<display:column property="nama"  title="Nama Item" />
 					<display:column property="harga" title="Harga per Item" />
 					<display:column property="pesan" title="Jumlah Order" />
 					<display:column property="total" title="Total" />
 					<display:column title="Action">
-						<button class="action radius2" onclick="window.location='<c:url value="order/delete"/>'">Hapus</button>
+						<button class="action radius2" onclick="window.location='<c:url value="order/delete?orderCode=${order.kode}"/>'">Hapus</button>
 					</display:column>
 				</display:table>
 			</td>
@@ -190,6 +190,11 @@
 										'status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, ' +
 										'width=' + w + ', height='	+ h	+ ', top=' + top + ', left=' + left);
 		}
+		
+		jQuery('#btnOrder').bind('click', function(){
+			jQuery('#formTemp').submit();
+		});
+		
 	</script>
 </body>
 </html>

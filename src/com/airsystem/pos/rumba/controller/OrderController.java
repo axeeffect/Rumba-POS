@@ -2,22 +2,19 @@ package com.airsystem.pos.rumba.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.airsystem.pos.rumba.bean.Detail;
 import com.airsystem.pos.rumba.bean.Item;
 import com.airsystem.pos.rumba.bean.Order;
+import com.airsystem.pos.rumba.controller.model.ItemDispatcher;
 import com.airsystem.pos.rumba.service.OrderService;
 import com.airsystem.pos.rumba.util.Constant;
 import com.airsystem.pos.rumba.util.DateUtil;
@@ -28,7 +25,9 @@ import com.airsystem.pos.rumba.util.DateUtil;
 
 @Controller
 public class OrderController {
-
+	
+	private static final String URI_ORDER = "order";
+	
 	private String tanggal;
 
 	private String kode;
@@ -51,79 +50,86 @@ public class OrderController {
 			modelMap.put("cart", carts);
 		}
 
-		return "order";
+		return URI_ORDER;
 	}
 
 	@RequestMapping(value = "/order", method = RequestMethod.POST)
-	public String orderAddPage(@RequestParam String tanggal, @RequestParam String kode,
-							   @RequestParam String jumlah,	 @RequestParam String nama,
-							   @RequestParam String harga,	 @RequestParam String pesan, ModelMap modelMap) {
-		this.tanggal = tanggal;
-		this.kode 	 = kode;
-		this.jumlah  = jumlah;
-
-		int hargaItem = Integer.parseInt(harga);
-		pesanItem	  = Integer.parseInt(pesan);
-		total = pesanItem * hargaItem;
-
-		Map<String, Object> cartMap = new HashMap<String, Object>();
-		cartMap.put("nama", nama);
-		cartMap.put("harga", harga);
-		cartMap.put("pesan", pesan);
-		cartMap.put("total", total);
-
-		if (carts != null) {
-			carts.add(cartMap);
-		} else {
+	public String orderAddPage(String tanggal,
+							   ItemDispatcher item,
+							   ModelMap modelMap) {
+		
+		if(carts == null) {
 			carts = new ArrayList<Object>();
-			carts.add(cartMap);
 		}
-
+		
+		boolean isEqual = false;
+		for(Object obj : carts) {
+			if(obj.equals(item) ) {
+				isEqual = true;
+				break;
+			}
+		}
+		
+		if(!isEqual) {
+			carts.add(item);
+		}
+		
 		modelMap.put("mode", Constant.MODE_ORDER);
 		modelMap.put("tanggal", tanggal);
 		modelMap.put("jumlah", jumlah);
 		modelMap.put("cart", carts);
-
-		return "order";
+		
+		return URI_ORDER;
 	}
-
+	
 	@RequestMapping(value = "/order/delete", method = RequestMethod.GET)
-	public String orderDeletePage() {
-		carts.remove(0);
-
+	public String orderDeletePage(String orderCode) {
+		
+		for(Object item : carts) {
+			ItemDispatcher temp = (ItemDispatcher) item;
+			if(temp.getKode().equals(orderCode) ) {
+				carts.remove(item);
+				break;
+			}
+		}
+		
 		return "redirect:/order";
 	}
 
 	@RequestMapping(value = "/order/submit", method = RequestMethod.POST)
-	public String orderSubmitPage(@ModelAttribute Item item, @ModelAttribute Order order,
-								  @ModelAttribute Detail detail, BindingResult result) {
-		if (result.hasErrors()) {
+	public String orderSubmitPage(String tanggal, ModelMap modelMap) {
+		
+		if(carts == null || carts.isEmpty() ) {
 			return "redirect:/order";
 		}
-
-		item = orderService.findItemById(kode);
-		if (item != null) {
-			int stok 	   = Integer.parseInt(jumlah);
-			int updateStok = stok - pesanItem;
-
-			Date tanggalOrder = DateUtil.convertStringToDate(tanggal);
-
-			item.setJumlah(updateStok);
-			order.setTanggal(tanggalOrder);
-			detail.setItem(item);
-			detail.setOrder(order);
-			detail.setJumlah(pesanItem);
-			detail.setTotal(total);
-
-			orderService.saveItem(item);
-			orderService.saveOrder(order);
-			orderService.saveDetail(detail);
+		
+		Order order = new Order();
+		Date tanggalOrder = DateUtil.convertStringToDate(tanggal);
+		order.setTanggal(tanggalOrder);
+		orderService.saveOrder(order);
+		
+		for(Object object : carts) {
+			ItemDispatcher newItem = (ItemDispatcher) object;
+			Item item = orderService.findItemById(newItem.getKode() );
+			
+			if (item != null) {
+				int updateStok = item.getJumlah() - newItem.getPesanInt();
+				item.setJumlah(updateStok);
+				orderService.saveItem(item);
+				
+				Detail detail = new Detail();
+				detail.setItem(item);
+				detail.setOrder(order);
+				detail.setJumlah(newItem.getPesanInt() );
+				detail.setTotal(newItem.getTotal() );
+				orderService.saveDetail(detail);
+			}
 		}
-
+		
 		if (carts != null) {
 			carts.clear();
 		}
-
+		
 		return "redirect:/order";
 	}
 }
