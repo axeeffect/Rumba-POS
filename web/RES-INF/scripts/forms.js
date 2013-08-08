@@ -15,7 +15,6 @@ jQuery(document).ready(function() {
 					jQuery('input:checkbox, input:radio, select.uniformselect, input:file').uniform();
 
 					// DUAL BOX //
-
 					// get arrows of dual select
 					var db = jQuery('#dualselect').find('.ds_arrow .arrow');
 
@@ -29,7 +28,6 @@ jQuery(document).ready(function() {
 					sel2.empty();
 
 					db.click(function() {
-
 						// arrow prev otherwise arrow next
 						var t = (jQuery(this).hasClass('ds_prev')) ? 0 : 1; // 0 if
 
@@ -76,13 +74,13 @@ jQuery(document).ready(function() {
 							tanggal : "required",
 							nama  	: "required",
 							harga 	: "required",
-							jumlah 	: "required",
+							pesan 	: "required",
 						},
 						messages : {
 							tanggal : "Tanggal order kosong",
 							nama  	: "Nama item kosong",
 							harga  	: "Harga per item kosong",
-							jumlah	: "Jumlah order kosong",
+							pesan	: "Jumlah order kosong",
 						}
 					});
 
@@ -94,13 +92,6 @@ jQuery(document).ready(function() {
 						min : 0,
 						max : 100,
 						increment : 2
-					});
-
-					// CHARACTER COUNTER //
-					jQuery("#textarea2").charCount({
-						allowed : 120,
-						warning : 20,
-						counterText : 'Characters left: '
 					});
 
 					// SELECT WITH SEARCH //

@@ -179,16 +179,15 @@
 				<input class="reset radius2" type="reset" value="Batal" onclick="window.location='<c:url value="/item/cancel"/>'" />
 			</p>
 			</c:if>
-
-			<br clear="all" />
 			</form>
+			<br clear="all" />
 
 			<!-- DISPLAY TAG TABLE -->
 			<c:if test="${mode == 0}">
 			<table id="dtag" style="margin: 0 auto;" width="80%">
 			<tr>
 			<td colspan="3">
-				<display:table name="item" id="data" requestURI="" pagesize="10">
+				<display:table id="data" name="item" requestURI="" pagesize="10">
 					<display:column property="kode"   title="Kode Item"    sortable="true" />
 					<display:column property="nama"   title="Nama Item"    sortable="true" />
 					<display:column property="jenis"  title="Jenis Item"   sortable="true" />

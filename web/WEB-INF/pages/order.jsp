@@ -92,12 +92,17 @@
 		<!--contentwrapper-->
 		<div id="validation" class="contentwrapper">
 			<form id="form2" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="order"/>">
-			<input type="hidden" name="mode" value="${mode}"/>
 
+			<!-- HIDDEN FIELD -->
+			<input type="hidden" name="mode" value="${mode}"/>
+			<input type="hidden" name="kode" value="${kode}"/>
+			<input type="hidden" name="jumlah" value="${jumlah}"/>
+
+			<!-- ORDER FIELD -->
 			<p>
 			<label>Tanggal Order</label>
 				<span class="field">
-					<input id="tanggal" class="smallinput" type="date" name="tanggal" maxlength="10" />
+					<input id="tanggal" class="smallinput" type="date" name="tanggal" value="${tanggal}" maxlength="10" />
 				</span>
 			</p>
 			<p>
@@ -115,33 +120,39 @@
 			<p>
 			<label>Jumlah Order</label>
 				<span class="field">
-					<input id="jumlah" class="smallinput" type="text" name="jumlah" maxlength="3" />
+					<input id="pesan" class="smallinput" type="text" name="pesan" maxlength="3" />
 				</span>
 			</p>
+
+			<!-- BUTTON ACTION -->
 			<br />
-
-			<!-- HIDDEN OBJECT -->
-			<input type="hidden" name="total" />
-			<input type="hidden" name="stok" />
-
-			<p style="margin: 0 auto;" class="stdformbutton">
-				<c:if test="${mode == 2}">
-				<button style="margin-left: 20px" class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari',600,400); return false;">Cari</button>
+			<!-- Order Page -->
+			<p style="margin-left: 140px" class="stdformbutton">
+				<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
 				<button class="submit radius2">Tambah</button>
-				<button class="submit radius2" onclick="return false;">Order</button>
-				</c:if>
 			</p>
-			<br clear="all" />
 			</form>
 
+			<!-- Order Submit Page -->
+			<c:if test="${mode == 2}">
+			<form style="margin-left: 260px; margin-top: -51px;" class="stdformbutton" method="post" action="<c:url value="order/submit"/>">
+				<button class="submit radius2">Order</button>
+			</form>
+			</c:if>
+			<br clear="all" />
+
+			<!-- DISPLAY TAG TABLE -->
 			<table id="dtag" style="margin: 0 auto;" width="80%">
 			<tr>
 			<td colspan="3">
-				<display:table name="cart" id="item" requestURI="" pagesize="10">
-					<display:column property="nama"   title="Nama Item" />
-					<display:column property="harga"  title="Harga per Item" />
-					<display:column property="jumlah" title="Jumlah Order" />
+				<display:table id="order" name="cart" requestURI="" pagesize="10">
+					<display:column property="nama"  title="Nama Item" />
+					<display:column property="harga" title="Harga per Item" />
+					<display:column property="pesan" title="Jumlah Order" />
 					<display:column property="total" title="Total" />
+					<display:column title="Action">
+						<button class="action radius2" onclick="window.location='<c:url value="order/delete"/>'">Hapus</button>
+					</display:column>
 				</display:table>
 			</td>
 			</tr>
@@ -174,7 +185,10 @@
 		function SearchWindow(pageURL, title, w, h) {
 			var left = (screen.width / 2)  - (w / 2);
 			var top  = (screen.height / 2) - (h / 2);
-			var targetWin = window.open(pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height='	+ h	+ ', top=' + top + ', left=' + left);
+			var targetWin = window.open(pageURL, title,
+										'toolbar=no, location=no, directories=no, ' +
+										'status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, ' +
+										'width=' + w + ', height='	+ h	+ ', top=' + top + ', left=' + left);
 		}
 	</script>
 </body>
