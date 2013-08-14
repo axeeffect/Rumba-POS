@@ -10,7 +10,7 @@
 <title>Order Item</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" 	  type="text/css" />
 <link rel="stylesheet" href="<c:url value="/RES-INF/styles/displaytag.css"/>" type="text/css">
 
 <!--[if IE 9]>
@@ -21,7 +21,7 @@
     <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
-<body class="withvernav">
+<body class="withnoisebg">
 
 	<!--bodywrapper-->
 	<div class="bodywrapper">
@@ -42,7 +42,7 @@
 
 				<!--userinfo-->
 				<div class="userinfo">
-					<img alt="" src="<c:url value="/RES-INF/images/sales.png"/>" />
+					<img alt="" src="<c:url value="/RES-INF/images/icons/sales.png"/>" />
 					<span>Rumba Sales</span>
 				</div>
 
@@ -51,7 +51,7 @@
 
 					<!--avatar-->
 					<div class="avatar">
-						<a href=""><img alt="" src="<c:url value="/RES-INF/images/salesbig.png"/>" /></a>
+						<a href=""><img alt="" src="<c:url value="/RES-INF/images/icons/salesbig.png"/>" /></a>
 					</div>
 
 					<!--userdata-->
@@ -78,7 +78,7 @@
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li>
-					<a href="#laporan-penjualan">
+					<a href="<c:url value="report/sales"/>">
 					<span class="icon icon-author"></span>Laporan</a>
 				</li>
 			</ul>
@@ -94,8 +94,8 @@
 			<form id="form2" onkeypress="return event.keyCode != 13;" class="stdform" method="post" action="<c:url value="order"/>">
 
 			<!-- HIDDEN FIELD -->
-			<input type="hidden" name="mode" value="${mode}"/>
-			<input type="hidden" name="kode" value="${kode}"/>
+			<input type="hidden" name="mode"   value="${mode}"/>
+			<input type="hidden" name="kode"   value="${kode}"/>
 			<input type="hidden" name="jumlah" value="${jumlah}"/>
 
 			<!-- ORDER FIELD -->
@@ -126,59 +126,58 @@
 
 			<!-- BUTTON ACTION -->
 			<br />
-			<!-- Order Page -->
-			<p style="margin-left: 140px" class="stdformbutton">
+			<p class="stdformbutton">
 				<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
 				<button class="submit radius2">Tambah</button>
 				<c:if test="${mode == 2}">
-					<button id="btnOrder" type="button" class="submit radius2">Order</button>
+					<button id="buttonorder" type="button" class="submit radius2">Order</button>
 				</c:if>
 			</p>
-			</form>
-			<form id="formTemp" style="visibility:hidden;" method="post" action="<c:url value="order/submit"/>">
-				<input id="tanggal" type="text" name="tanggal" value="${tanggal}" maxlength="10" />
 			</form>
 			<br clear="all" />
 
 			<!-- DISPLAY TAG TABLE -->
-			<table id="dtag" style="margin: 0 auto;" width="80%">
+			<table id="dtag" style="margin-left: 135px;" width="75%">
 			<tr>
 			<td colspan="3">
-				<display:table id="order" name="cart" requestURI="" pagesize="10">
-					<display:column property="kode"  title="Kode Item" />
-					<display:column property="nama"  title="Nama Item" />
-					<display:column property="harga" title="Harga per Item" />
-					<display:column property="pesan" title="Jumlah Order" />
-					<display:column property="total" title="Total" />
+				<display:table id="order" name="cart" requestURI="">
+					<display:column property="kode"  title="Kode Item"		sortable="true" />
+					<display:column property="nama"  title="Nama Item"		sortable="true" />
+					<display:column property="harga" title="Harga per Item" sortable="true" />
+					<display:column property="pesan" title="Jumlah Order"	sortable="true" />
+					<display:column property="total" title="Total"			sortable="true" />
 					<display:column title="Action">
-						<button class="action radius2" onclick="window.location='<c:url value="order/delete?orderCode=${order.kode}"/>'">Hapus</button>
+						<button class="action radius2" onclick="window.location='<c:url value="order/delete?id=${order.kode}"/>'">Hapus</button>
 					</display:column>
 				</display:table>
 			</td>
 			</tr>
 			</table>
+
+			<!-- HIDDEN FORM -->
+			<form id="submitform" style="visibility:hidden;" method="post" action="<c:url value="order/submit"/>" />
 		</div>
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.validate.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.tagsinput.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/charCount.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/ui.spinner.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/chosen.jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/forms.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.js"/>" 			type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.cookie.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.uniform.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.validate.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.tagsinput.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/charCount.js"/>" 		type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/ui.spinner.js"/>" 		type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/chosen.jquery.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" 					type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/forms.js"/>" 					type="text/javascript"></script>
 
 	<!--[if lte IE 8]>
-		<script src="<c:url value="/RES-INF/scripts/excanvas.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/excanvas.js"/>" 		 type="text/javascript"></script>
 	<![endif]-->
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 
 	<script>
@@ -190,11 +189,10 @@
 										'status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, ' +
 										'width=' + w + ', height='	+ h	+ ', top=' + top + ', left=' + left);
 		}
-		
-		jQuery('#btnOrder').bind('click', function(){
-			jQuery('#formTemp').submit();
+
+		jQuery('#buttonorder').bind('click', function(){
+			jQuery('#submitform').submit();
 		});
-		
 	</script>
 </body>
 </html>

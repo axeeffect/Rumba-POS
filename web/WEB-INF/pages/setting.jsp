@@ -19,6 +19,7 @@
 <![endif]-->
 </head>
 <body class="loginpage">
+
 	<!--loginbox-->
 	<div class="loginbox">
 
@@ -59,15 +60,15 @@
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/setting.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.js"/>" 			type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.cookie.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.uniform.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" 					type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/setting.js"/>" 					type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 </body>
 </html>

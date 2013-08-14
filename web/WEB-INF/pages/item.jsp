@@ -7,10 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Master Data</title>
+<title>Master Item</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" 	  type="text/css" />
 <link rel="stylesheet" href="<c:url value="/RES-INF/styles/displaytag.css"/>" type="text/css">
 
 <!--[if IE 9]>
@@ -21,7 +21,7 @@
     <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
-<body class="withvernav">
+<body class="withnoisebg">
 
 	<!--bodywrapper-->
 	<div class="bodywrapper">
@@ -42,7 +42,7 @@
 
 				<!--userinfo-->
 				<div class="userinfo">
-					<img alt="" src="<c:url value="/RES-INF/images/sales.png"/>" />
+					<img alt="" src="<c:url value="/RES-INF/images/icons/sales.png"/>" />
 					<span>Rumba Sales</span>
 				</div>
 
@@ -51,7 +51,7 @@
 
 					<!--avatar-->
 					<div class="avatar">
-						<a href=""><img alt="" src="<c:url value="/RES-INF/images/salesbig.png"/>" /></a>
+						<a href=""><img alt="" src="<c:url value="/RES-INF/images/icons/salesbig.png"/>" /></a>
 					</div>
 
 					<!--userdata-->
@@ -74,11 +74,11 @@
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li>
-					<a href="<c:url value="order"/>">
+					<a href="<c:url value="/order"/>">
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li>
-					<a href="#laporan-penjualan">
+					<a href="<c:url value="/report/sales"/>">
 					<span class="icon icon-author"></span>Laporan</a>
 				</li>
 			</ul>
@@ -184,7 +184,7 @@
 
 			<!-- DISPLAY TAG TABLE -->
 			<c:if test="${mode == 0}">
-			<table id="dtag" style="margin: 0 auto;" width="80%">
+			<table id="dtag" style="margin-left: 135px;" width="75%">
 			<tr>
 			<td colspan="3">
 				<display:table id="data" name="item" requestURI="" pagesize="10">
@@ -196,7 +196,7 @@
 					<display:column title="Action">
 					<c:set var="id" value="${data.kode}" />
 						<button class="action radius2" style="margin-right: 20px" onclick="window.location='<c:url value="item/edit?kode=${id}"/>'">Ubah</button>
-						<button class="action radius2" style="margin-right: 20px" onclick="window.location='<c:url value="item/delete?kode=${id}"/>'">Hapus</button>
+						<button class="action radius2" onclick="window.location='<c:url value="item/delete?kode=${id}"/>'">Hapus</button>
 					</display:column>
 				</display:table>
 			</td>
@@ -207,24 +207,24 @@
 	</div>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.validate.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.tagsinput.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/charCount.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/ui.spinner.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/chosen.jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/forms.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.js"/>" 			type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.cookie.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.uniform.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.validate.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.tagsinput.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/charCount.js"/>" 		type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/ui.spinner.js"/>" 		type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/chosen.jquery.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" 					type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/forms.js"/>" 					type="text/javascript"></script>
 
 	<!--[if lte IE 8]>
-		<script src="<c:url value="/RES-INF/scripts/excanvas.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/excanvas.js"/>" 		 type="text/javascript"></script>
 	<![endif]-->
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 </body>
 </html>

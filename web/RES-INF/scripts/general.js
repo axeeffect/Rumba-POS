@@ -126,37 +126,28 @@ jQuery(document).ready(function(){
 			jQuery(this).removeClass('hover').find('ul').hide();	
 		}
 	});
-	
-	
+
 	///// HORIZONTAL NAVIGATION (AJAX/INLINE DATA) /////	
-	
-	jQuery('.hornav a').click(function(){
-		
-		//this is only applicable when window size below 450px
-		if(jQuery(this).parents('.more').length == 0)
+
+	jQuery('.hornav a').click(function() {
+
+		// this is only applicable when window size below 450px
+		if(jQuery(this).parents('.more').length == 0) {
 			jQuery('.hornav li.more ul').hide();
-		
-		//remove current menu
-		jQuery('.hornav li').each(function(){
+		}
+
+		// remove current menu
+		jQuery('.hornav li').each(function() {
 			jQuery(this).removeClass('current');
 		});
-		
-		jQuery(this).parent().addClass('current');	// set as current menu
-		
+
+		// set as current menu
+		jQuery(this).parent().addClass('current');
+
 		var url = jQuery(this).attr('href');
-		if(jQuery(url).length > 0) {
-			jQuery('.contentwrapper .subcontent').hide();
-			jQuery(url).show();
-		} else {
-			jQuery.post(url, function(data){
-				jQuery('#contentwrapper').html(data);
-				jQuery('.stdtable input:checkbox').uniform();	//restyling checkbox
-			});
-		}
-		return false;
+		jQuery.post(url);
 	});
-	
-	
+
 	///// SEARCH BOX WITH AUTOCOMPLETE /////
 	
 	var availableTags = [

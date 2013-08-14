@@ -3,9 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Menu Utama</title>
+<title>Rumba Collection &middot; POS</title>
 
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
@@ -18,67 +18,56 @@
     <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
-<body class="withnoisebg">
+<body class="loginpage">
 
-	<!--bodywrapper-->
-	<div class="bodywrapper">
+	<!--loginbox-->
+	<div class="loginbox">
 
-		<!--topheader-->
-		<div class="topheader">
+		<!--loginboxinner-->
+		<div class="loginboxinner">
 
-			<!--left-->
-			<div class="left">
-				<h1 class="logo">
-					Rumba <span>Collection</span>
+			<!--logo-->
+			<div class="logo">
+				<h1>
+					<span>Rumba&nbsp;</span>Collection
 				</h1>
-				<br clear="all" />
+			</div>
+			<br clear="all" />
+
+			<!--nousername-->
+			<div class="nousername">
+				<div class="loginmsg">Username yang Anda masukkan salah.</div>
 			</div>
 
-			<!--right-->
-			<div class="right">
-
-				<!--userinfo-->
-				<div class="userinfo">
-					<img alt="" src="<c:url value="/RES-INF/images/icons/sales.png"/>" />
-					<span>Rumba Sales</span>
-				</div>
-
-				<!--userinfodrop-->
-				<div class="userinfodrop">
-
-					<!--avatar-->
-					<div class="avatar">
-						<a href=""><img alt="" src="<c:url value="/RES-INF/images/icons/salesbig.png"/>" /></a>
+			<!--nopassword-->
+			<div class="nopassword">
+				<div class="loginmsg">Password yang Anda masukkan salah.</div>
+				<div class="loginf">
+					<div class="thumb">
+						<img alt="" src="<c:url value="/RES-INF/images/icons/wrong-password.png"/>" />
 					</div>
 
-					<!--userdata-->
-					<div class="userdata">
-						<h4>Rumba Sales</h4>
-						<ul>
-							<li><a href="<c:url value="setting"/>">Ganti Password</a></li>
-							<li><a href="<c:url value="/"/>">Logout</a></li>
-						</ul>
+				<!--loginf-->
+					<div class="userlogged">
+						<h4></h4>
+						<a href="<c:url value="setting"/>">Bukan <span></span> ?</a>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!--header-->
-		<div class="header">
-			<ul class="headermenu">
-				<li>
-					<a href="<c:url value="item"/>">
-					<span class="icon icon-shirt"></span>Item</a>
-				</li>
-				<li>
-					<a href="<c:url value="order"/>">
-					<span class="icon icon-book"></span>Order</a>
-				</li>
-				<li>
-					<a href="<c:url value="report/sales"/>">
-					<span class="icon icon-author"></span>Laporan</a>
-				</li>
-			</ul>
+			<form id="login" action="<c:url value="menu"/>" method="post">
+				<div class="username">
+					<div class="usernameinner">
+						<input type="text" name="username" id="username" />
+					</div>
+				</div>
+				<div class="password">
+					<div class="passwordinner">
+						<input type="password" name="password" id="password" />
+					</div>
+				</div>
+				<button>Login</button>
+			</form>
 		</div>
 	</div>
 
@@ -88,10 +77,7 @@
 	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.cookie.js"/>" 	type="text/javascript"></script>
 	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.uniform.js"/>" 	type="text/javascript"></script>
 	<script src="<c:url value="/RES-INF/scripts/general.js"/>" 					type="text/javascript"></script>
-
-	<!--[if lte IE 8]>
-		<script src="<c:url value="/RES-INF/scripts/plugins/excanvas.js"/>" 		 type="text/javascript"></script>
-	<![endif]-->
+	<script src="<c:url value="/RES-INF/scripts/index.js"/>" 					type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
 		<script src="<c:url value="/RES-INF/scripts/plugins/css3-mediaqueries.js"/>" type="text/javascript"></script>

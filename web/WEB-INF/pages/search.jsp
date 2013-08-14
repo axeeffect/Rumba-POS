@@ -10,7 +10,7 @@
 <title>Cari Item</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/RES-INF/styles/default.css"/>" 	  type="text/css" />
 <link rel="stylesheet" href="<c:url value="/RES-INF/styles/displaytag.css"/>" type="text/css">
 
 <!--[if IE 9]>
@@ -21,20 +21,20 @@
     <link rel="stylesheet" media="screen" href="<c:url value="/RES-INF/styles/ie8.css"/>" type="text/css" />
 <![endif]-->
 </head>
-<body class="loginpage">
+<body class="withnoisebg">
 
 	<!-- DISPLAY TAG TABLE -->
-	<table id="dtag" style="margin: 0 auto;" width="100%">
+	<table id="dtag" width="100%">
 	<tr>
 	<td colspan="3">
-		<display:table id="item" name="search" requestURI="" pagesize="10">
+		<display:table id="item" name="search" requestURI="" pagesize="5">
 			<display:column property="kode"   title="Kode Item" />
 			<display:column property="nama"   title="Nama Item" />
 			<display:column property="jenis"  title="Jenis Item" />
 			<display:column property="jumlah" title="Jumlah Item" />
 			<display:column property="harga"  title="Harga Satuan" />
 			<display:column title="Action">
-				<button class="action radius2" onclick="pickItem('item')">Pilih</button>
+				<button class="action radius2" onclick="pickItem('item')">P I L I H</button>
 			</display:column>
 		</display:table>
 	</td>
@@ -42,15 +42,14 @@
 	</table>
 
 	<!-- JS -->
-	<script src="<c:url value="/RES-INF/scripts/jquery.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery-ui.custom.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.cookie.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/jquery.uniform.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/general.js"/>" type="text/javascript"></script>
-	<script src="<c:url value="/RES-INF/scripts/index.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.js"/>" 			type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery-ui.custom.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.cookie.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/plugins/jquery.uniform.js"/>" 	type="text/javascript"></script>
+	<script src="<c:url value="/RES-INF/scripts/general.js"/>" 					type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
-		<script src="<c:url value="/RES-INF/scripts/css3-mediaqueries.js"/>" type="text/javascript"></script>
+		<script src="<c:url value="/RES-INF/scripts/plugins/css3-mediaqueries.js"/>" type="text/javascript"></script>
 	<![endif]-->
 
 	<script>

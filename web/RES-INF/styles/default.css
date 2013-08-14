@@ -56,8 +56,9 @@ h5 { font-size: 14px; }
 
 span.h3 { font-size: 24px; display: block; }
 
-body.withvernav { background: #fff url(../images/default/noise.white.png); position: relative; }
-body.withmenucoll { background-position: 55px 0; } /* with menu style 1 in collapsed mode */
+body.withnoisebg { background: #fff url(../images/default/noise.white.png); position: relative; }
+body.withvernav  { background: #fff url(../images/line.png) repeat-y 230px 0; } /* with left menu*/
+body.withmenucoll  { background-position: 55px 0; } /* with menu style 1 in collapsed mode */
 body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in collapsed mode */
 
 

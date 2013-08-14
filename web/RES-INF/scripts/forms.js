@@ -84,6 +84,18 @@ jQuery(document).ready(function() {
 						}
 					});
 
+					/* FORM 3 */
+					jQuery("#form3").validate({
+						rules : {
+							startdate : "required",
+							enddate	  : "required"
+						},
+						messages : {
+							startdate : "Periode awal kosong",
+							enddate   : "Periode akhir kosong"
+						}
+					});
+
 					// TAG INPUT //
 					jQuery('#tags').tagsInput();
 
