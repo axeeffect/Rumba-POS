@@ -1,6 +1,7 @@
 package com.airsystem.pos.rumba.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -16,8 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  *            	   PK ID from Bean Object
  */
 
-@SuppressWarnings("unchecked")
 public abstract class AbstractDao<T, ID extends Serializable> {
+
 	protected final Logger log = Logger.getLogger(getClass().getSimpleName());
 
 	@Autowired
@@ -29,9 +30,17 @@ public abstract class AbstractDao<T, ID extends Serializable> {
 	}
 
 	public List<T> findAll() {
-		return sessionFactory.getCurrentSession().createCriteria(beanClass).list();
+		List<?> criteria = sessionFactory.getCurrentSession().createCriteria(beanClass).list();
+
+		List<T> list = new ArrayList<T>();
+		for (Object result : criteria) {
+			list.add(beanClass.cast(result));
+		}
+
+		return list;
 	}
 
+	@SuppressWarnings("unchecked")
 	public T findById(ID id) {
 		return (T) sessionFactory.getCurrentSession().get(beanClass, id);
 	}

@@ -7,17 +7,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.airsystem.pos.rumba.bean.Detail;
 import com.airsystem.pos.rumba.bean.Item;
 import com.airsystem.pos.rumba.bean.Order;
-import com.airsystem.pos.rumba.controller.model.ItemDispatcher;
+import com.airsystem.pos.rumba.controller.model.OrderDispatcher;
 import com.airsystem.pos.rumba.service.OrderService;
+import com.airsystem.pos.rumba.util.ApplicationDate;
 import com.airsystem.pos.rumba.util.Constant;
-import com.airsystem.pos.rumba.util.DateUtil;
 
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
@@ -25,18 +25,12 @@ import com.airsystem.pos.rumba.util.DateUtil;
 
 @Controller
 public class OrderController {
-	
-	private static final String URI_ORDER = "order";
-	
-	private String tanggal;
 
-	private String kode;
+	private static final String URI_ORDER 		   = "order";
 
-	private String jumlah;
+	private static final String URI_REDIRECT_ORDER = new StringBuilder("redirect:/").append(URI_ORDER).toString();
 
-	private int pesanItem;
-
-	private long total;
+	private OrderDispatcher orderDispatcher;
 
 	private List<Object> carts;
 
@@ -45,8 +39,8 @@ public class OrderController {
 
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
 	public String orderPage(ModelMap modelMap) {
-		if (carts != null && carts.size() != 0) {
-			modelMap.put("tanggal", tanggal);
+		if (carts != null && !carts.isEmpty()) {
+			modelMap.put("tanggal", orderDispatcher.getTanggal());
 			modelMap.put("cart", carts);
 		}
 
@@ -54,82 +48,79 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "/order", method = RequestMethod.POST)
-	public String orderAddPage(String tanggal,
-							   ItemDispatcher item,
-							   ModelMap modelMap) {
-		
-		if(carts == null) {
+	public String orderAddPage(OrderDispatcher orderTemp, ModelMap modelMap) {
+		if (carts == null) {
 			carts = new ArrayList<Object>();
 		}
-		
+
 		boolean isEqual = false;
-		for(Object obj : carts) {
-			if(obj.equals(item) ) {
+		for (Object cart : carts) {
+			if (cart.equals(orderTemp)) {
 				isEqual = true;
+
 				break;
 			}
 		}
-		
-		if(!isEqual) {
-			carts.add(item);
+
+		if (!isEqual) {
+			carts.add(orderTemp);
 		}
-		
+
+		this.orderDispatcher = orderTemp;
 		modelMap.put("mode", Constant.MODE_ORDER);
-		modelMap.put("tanggal", tanggal);
-		modelMap.put("jumlah", jumlah);
+		modelMap.put("tanggal", orderTemp.getTanggal());
 		modelMap.put("cart", carts);
-		
+
 		return URI_ORDER;
 	}
-	
+
 	@RequestMapping(value = "/order/delete", method = RequestMethod.GET)
-	public String orderDeletePage(String orderCode) {
-		
-		for(Object item : carts) {
-			ItemDispatcher temp = (ItemDispatcher) item;
-			if(temp.getKode().equals(orderCode) ) {
-				carts.remove(item);
+	public String orderDeletePage(String id) {
+		for (Object cart : carts) {
+			orderDispatcher = (OrderDispatcher) cart;
+
+			if (orderDispatcher.getKode().equals(id)) {
+				carts.remove(cart);
+
 				break;
 			}
 		}
-		
-		return "redirect:/order";
+
+		return URI_REDIRECT_ORDER;
 	}
 
 	@RequestMapping(value = "/order/submit", method = RequestMethod.POST)
-	public String orderSubmitPage(String tanggal, ModelMap modelMap) {
-		
-		if(carts == null || carts.isEmpty() ) {
-			return "redirect:/order";
+	public String orderSubmitPage(@ModelAttribute Item item, @ModelAttribute Order order) {
+		if (carts == null || carts.isEmpty()) {
+			return URI_REDIRECT_ORDER;
 		}
-		
-		Order order = new Order();
-		Date tanggalOrder = DateUtil.convertStringToDate(tanggal);
+
+		Date tanggalOrder = ApplicationDate.convertStringToDate(orderDispatcher.getTanggal());
 		order.setTanggal(tanggalOrder);
 		orderService.saveOrder(order);
-		
-		for(Object object : carts) {
-			ItemDispatcher newItem = (ItemDispatcher) object;
-			Item item = orderService.findItemById(newItem.getKode() );
-			
+
+		for (Object object : carts) {
+			orderDispatcher = (OrderDispatcher) object;
+
+			item = orderService.findItemById(orderDispatcher.getKode());
 			if (item != null) {
-				int updateStok = item.getJumlah() - newItem.getPesanInt();
-				item.setJumlah(updateStok);
+				int updateStock = item.getJumlah() - orderDispatcher.getPesanItem();
+				item.setJumlah(updateStock);
 				orderService.saveItem(item);
-				
+
 				Detail detail = new Detail();
 				detail.setItem(item);
 				detail.setOrder(order);
-				detail.setJumlah(newItem.getPesanInt() );
-				detail.setTotal(newItem.getTotal() );
+				detail.setJumlah(orderDispatcher.getPesanItem());
+				detail.setTotal(orderDispatcher.getTotal());
 				orderService.saveDetail(detail);
 			}
 		}
-		
+
 		if (carts != null) {
 			carts.clear();
 		}
-		
-		return "redirect:/order";
+
+		return URI_REDIRECT_ORDER;
 	}
 }
