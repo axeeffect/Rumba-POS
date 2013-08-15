@@ -58,7 +58,7 @@
 					<div class="userdata">
 						<h4>Rumba Sales</h4>
 						<ul>
-							<li><a href="<c:url value="setting"/>">Ganti Password</a></li>
+							<li><a onclick="return false">Ganti Password</a></li>
 							<li><a href="<c:url value="/"/>">Logout</a></li>
 						</ul>
 					</div>
@@ -70,7 +70,7 @@
 		<div class="header">
 			<ul class="headermenu">
 				<li>
-					<a href="<c:url value="item"/>">
+					<a onclick="return false">
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li class="current">
@@ -78,7 +78,7 @@
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li>
-					<a href="<c:url value="report/sales"/>">
+					<a onclick="return false">
 					<span class="icon icon-author"></span>Laporan</a>
 				</li>
 			</ul>
@@ -127,10 +127,17 @@
 			<!-- BUTTON ACTION -->
 			<br />
 			<p class="stdformbutton">
-				<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
-				<button class="submit radius2">Tambah</button>
+				<c:if test="${mode != 2}">
+					<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
+					<button class="submit radius2">Tambah</button>
+					<input class="reset radius2" type="reset" value="Keluar" onclick="window.location='<c:url value="/menu"/>'" />
+				</c:if>
+
 				<c:if test="${mode == 2}">
+					<button class="submit radius2" onclick="SearchWindow('<c:url value="item/search"/>','Cari Item',600,400); return false;">Cari</button>
+					<button class="submit radius2">Tambah</button>
 					<button id="buttonorder" type="button" class="submit radius2">Order</button>
+					<input class="reset radius2" type="reset" value="Keluar" onclick="window.location='<c:url value="/menu"/>'" />
 				</c:if>
 			</p>
 			</form>
@@ -147,7 +154,8 @@
 					<display:column property="pesan" title="Jumlah Order"	sortable="true" />
 					<display:column property="total" title="Total"			sortable="true" />
 					<display:column title="Action">
-						<button class="action radius2" onclick="window.location='<c:url value="order/delete?id=${order.kode}"/>'">Hapus</button>
+					<c:set var="id" value="${order.kode}" />
+						<button class="action radius2" onclick="window.location='<c:url value="order/delete?id=${id}"/>'">Hapus</button>
 					</display:column>
 				</display:table>
 			</td>

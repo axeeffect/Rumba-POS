@@ -6,7 +6,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.airsystem.pos.rumba.service.ItemService;
+import com.airsystem.pos.rumba.service.BaseService;
+import com.airsystem.pos.rumba.util.Constraint;
+import com.airsystem.pos.rumba.util.QueryResolver;
 
 /**
  * @author Budi Oktaviyan Suryanto <budi.oktaviyan@icloud.com>
@@ -16,11 +18,18 @@ import com.airsystem.pos.rumba.service.ItemService;
 public class SearchController {
 
 	@Autowired
-	private ItemService itemService;
+	private BaseService baseService;
+
+	private QueryResolver queryResolver;
 
 	@RequestMapping(value = "/item/search", method = RequestMethod.GET)
 	public String searchWindow(ModelMap modelMap) {
-		modelMap.put("search", itemService.findAllItem());
+		Constraint constraint = new Constraint();
+		constraint.setWhereClause("item.jumlah != 0");
+
+		queryResolver = baseService.searchData("item", "Item item", constraint);
+
+		modelMap.put("search", queryResolver.getResults());
 
 		return "search";
 	}

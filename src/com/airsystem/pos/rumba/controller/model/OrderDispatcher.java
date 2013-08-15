@@ -5,15 +5,17 @@ package com.airsystem.pos.rumba.controller.model;
  */
 public class OrderDispatcher {
 
-	private String tanggal;
-
 	private String kode;
+
+	private String jumlah;
+
+	private String tanggal;
 
 	private String nama;
 
-	private String pesan;
-
 	private String harga;
+
+	private String pesan;
 
 	private long total;
 
@@ -32,20 +34,28 @@ public class OrderDispatcher {
 		return isEqual;
 	}
 
-	public String getTanggal() {
-		return tanggal;
-	}
-
-	public void setTanggal(String tanggal) {
-		this.tanggal = tanggal;
-	}
-
 	public String getKode() {
 		return kode;
 	}
 
 	public void setKode(String kode) {
 		this.kode = kode;
+	}
+
+	public String getJumlah() {
+		return jumlah;
+	}
+
+	public void setJumlah(String jumlah) {
+		this.jumlah = jumlah;
+	}
+
+	public String getTanggal() {
+		return tanggal;
+	}
+
+	public void setTanggal(String tanggal) {
+		this.tanggal = tanggal;
 	}
 
 	public String getNama() {
@@ -56,6 +66,14 @@ public class OrderDispatcher {
 		this.nama = nama;
 	}
 
+	public String getHarga() {
+		return harga;
+	}
+
+	public void setHarga(String harga) {
+		this.harga = harga;
+	}
+
 	public String getPesan() {
 		return pesan;
 	}
@@ -64,12 +82,8 @@ public class OrderDispatcher {
 		this.pesan = pesan;
 	}
 
-	public String getHarga() {
-		return harga;
-	}
-
-	public void setHarga(String harga) {
-		this.harga = harga;
+	public int getJumlahItem() {
+		return Integer.parseInt(getJumlah());
 	}
 
 	public int getPesanItem() {

@@ -58,7 +58,7 @@
 					<div class="userdata">
 						<h4>Rumba Sales</h4>
 						<ul>
-							<li><a href="<c:url value="setting"/>">Ganti Password</a></li>
+							<li><a onclick="return false">Ganti Password</a></li>
 							<li><a href="<c:url value="/"/>">Logout</a></li>
 						</ul>
 					</div>
@@ -74,11 +74,11 @@
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li>
-					<a href="<c:url value="/order"/>">
+					<a onclick="return false">
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li>
-					<a href="<c:url value="/report/sales"/>">
+					<a onclick="return false">
 					<span class="icon icon-author"></span>Laporan</a>
 				</li>
 			</ul>
@@ -168,7 +168,7 @@
 			<c:if test="${mode == 0}">
 			<p class="stdformbutton">
 				<button class="submit radius2">Simpan</button>
-				<input class="reset radius2" type="reset" value="Keluar" onclick="window.location='<c:url value="menu"/>'" />
+				<input class="reset radius2" type="reset" value="Keluar" onclick="window.location='<c:url value="/menu"/>'" />
 			</p>
 			</c:if>
 

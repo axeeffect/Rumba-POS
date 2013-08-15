@@ -62,7 +62,7 @@ public class OrderController {
 			}
 		}
 
-		if (!isEqual) {
+		if (!isEqual && orderTemp.getPesanItem() <= orderTemp.getJumlahItem()) {
 			carts.add(orderTemp);
 		}
 

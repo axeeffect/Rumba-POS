@@ -58,7 +58,7 @@
 					<div class="userdata">
 						<h4>Rumba Sales</h4>
 						<ul>
-							<li><a href="<c:url value="/setting"/>">Ganti Password</a></li>
+							<li><a onclick="return false">Ganti Password</a></li>
 							<li><a href="<c:url value="/"/>">Logout</a></li>
 						</ul>
 					</div>
@@ -70,11 +70,11 @@
 		<div class="header">
 			<ul class="headermenu">
 				<li>
-					<a href="<c:url value="/item"/>">
+					<a onclick="return false">
 					<span class="icon icon-shirt"></span>Item</a>
 				</li>
 				<li>
-					<a href="<c:url value="/order"/>">
+					<a onclick="return false">
 					<span class="icon icon-book"></span>Order</a>
 				</li>
 				<li class="current">
